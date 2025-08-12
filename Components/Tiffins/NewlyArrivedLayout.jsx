@@ -61,8 +61,6 @@ export default function NewlyArrivedLayout() {
               .slice(colIdx * 2, colIdx * 2 + 2) // only 2 per column
               .map(({ id, name, price, rating, img }) => (
                 <div key={id} className="mb-0 last:mb-0">
-                  {" "}
-                  {/* no bottom margin */}
                   <ItemCard
                     isAvailableDis={true}
                     rating={rating}

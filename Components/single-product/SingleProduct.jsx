@@ -8,10 +8,10 @@ import SingleProductLeftImge from "./SingleProductLeftImge";
 const SingleProduct = () => {
   return (
     <div className="w-full flex flex-col gap-7">
-      <div className="w-full flex justify-between gap-6 items-start">
+      <div className="w-full flex flex-col md:flex-row justify-between gap-6 items-start">
         <SingleProductLeftImge />
         {/* Right side: Product details */}
-        <div className="w-[50%] flex flex-col gap-3">
+        <div className="w-full md:w-[50%] flex flex-col gap-3">
           <h2 className="font-semibold text-2xl text-black">
             Single product One
           </h2>
@@ -55,7 +55,9 @@ const SingleProduct = () => {
             Beverages Frozen Desserts Frozen Foods Frozen Potatoes
           </span>
 
-          <div className="w-full flex gap-1.5">
+          <div className="w-full flex flex-wrap items-center gap-1.5">
+            <span className="w-[120px] h-[150px] border border-gray-200"></span>
+            <span className="w-[120px] h-[150px] border border-gray-200"></span>
             <span className="w-[120px] h-[150px] border border-gray-200"></span>
           </div>
         </div>
