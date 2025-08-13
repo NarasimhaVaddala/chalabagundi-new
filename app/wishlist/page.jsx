@@ -2,19 +2,18 @@
 import EmptyComponent from "@/Components/wishlist/EmptyComponent";
 import WishlistItem from "@/Components/wishlist/WishlistItem";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const page = () => {
-  const wishlist = [""];
+  const wishlistItems = useSelector((state) => state.wishlist.items);
+
   return (
     <div className="w-full flex flex-col gap-10 px-[clamp(1rem,6vw,5rem)] py-2 mt-7">
-      {wishlist.length > 0 ? (
+      {wishlistItems.length > 0 ? (
         <div className="w-full flex flex-wrap gap-8">
-          <WishlistItem />
-          <WishlistItem />
-          <WishlistItem />
-          <WishlistItem />
-          <WishlistItem />
-          <WishlistItem />
+          {wishlistItems?.map((wish, index) => (
+            <WishlistItem wish={wish} key={index} />
+          ))}
         </div>
       ) : (
         <EmptyComponent />

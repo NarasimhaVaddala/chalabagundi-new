@@ -1,0 +1,44 @@
+"use client";
+import CardItem from "@/Components/card/CardItem";
+import EmptyComponent from "@/Components/wishlist/EmptyComponent";
+import React from "react";
+import { useSelector } from "react-redux";
+
+const Page = () => {
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const totalPrice = cartItems.reduce(
+    (total, item) =>
+      total + parseInt(item?.price?.replace(/[^0-9]/g, ""), 10) * item.quantity,
+    0
+  );
+
+  return (
+    <div className="w-full flex flex-col gap-10 px-[clamp(1rem,6vw,5rem)] py-2 mt-7">
+      {cartItems.length === 0 ? (
+        <EmptyComponent text="Cart" />
+      ) : (
+        <>
+          {cartItems.map((item) => (
+            <CardItem key={item.id} item={item} />
+          ))}
+
+          <div className="w-full flex flex-col md:flex-row md:justify-between md:items-center gap-4 border-y border-gray-200 py-3">
+            <div className="flex justify-between items-center w-full md:w-auto">
+              <span className="text-base md:text-lg">Total Price</span>
+              <span className="text-2xl font-semibold text-[#184d47] ml-4">
+                ₹ {totalPrice} /-
+              </span>
+            </div>
+
+            <button className="w-full md:w-[150px] h-[45px] text-white text-lg font-semibold bg-[#184d47] rounded-md">
+              Check Out
+            </button>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default Page;

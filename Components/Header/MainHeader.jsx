@@ -3,10 +3,15 @@
 import { Heart, Search, User, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export const MainHeader = () => {
+  const router = useRouter();
   const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const cartItems = useSelector((state) => state.cart.items);
+  const wishlistItems = useSelector((state) => state.wishlist.items);
 
   return (
     <>
@@ -35,20 +40,30 @@ export const MainHeader = () => {
 
         {/* Icons */}
         <div className="flex gap-5 items-center">
-          <span className="w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center">
+          <span className="cursor-pointer w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center">
             <User size={19} />
           </span>
-          <span className="w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center relative">
+          <span
+            onClick={() => router.push("/wishlist")}
+            className="cursor-pointer w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center relative"
+          >
             <Heart size={19} />
-            <span className="w-[22px] h-[22px] rounded-full flex justify-center items-center bg-[#d92e1e] absolute -top-1 -right-2 text-white font-normal text-sm">
-              10
-            </span>
+            {wishlistItems?.length > 0 && (
+              <span className=" w-[22px] h-[22px] rounded-full flex justify-center items-center bg-[#d92e1e] absolute -top-1 -right-2 text-white font-normal text-sm">
+                {wishlistItems?.length}
+              </span>
+            )}
           </span>
-          <span className="w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center relative">
+          <span
+            onClick={() => router.push("/cart")}
+            className="cursor-pointer w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center relative"
+          >
             <ShoppingCart size={19} />
-            <span className="w-[22px] h-[22px] rounded-full flex justify-center items-center bg-[#d92e1e] absolute -top-1 -right-2 text-white font-normal text-sm">
-              10
-            </span>
+            {cartItems?.length > 0 && (
+              <span className="w-[22px] h-[22px] rounded-full flex justify-center items-center bg-[#d92e1e] absolute -top-1 -right-2 text-white font-normal text-sm">
+                {cartItems?.length}
+              </span>
+            )}
           </span>
 
           {/* Mobile Search Icon */}
