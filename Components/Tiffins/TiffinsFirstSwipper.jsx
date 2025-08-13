@@ -3,53 +3,52 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
 import { ShopBtn } from "@/Utils/ShopBtn";
+import { useMemo } from "react";
 
-const tiffinSlides = [
-  {
-    img: "https://t4.ftcdn.net/jpg/01/43/49/27/360_F_143492736_QgCfB0XKHtZpfGlIb1hr3M6mGCepcDVs.jpg",
-    title: "Idli with Sambar",
-    quote: "Soft & fluffy idlis served with hot sambar",
-    price: 50,
-  },
-  {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUxO51dhQgU4E69eIY40mfQDMowr6EyffU0Q&s",
-    title: "Masala Dosa",
-    quote: "Crispy dosa with spicy potato filling",
-    price: 70,
-  },
-  {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0X3JfY0GV02aJBCJjKCWllzSr0bS-GuJ2Fw&s",
-    title: "Pesarattu Upma",
-    quote: "Healthy green gram dosa with upma",
-    price: 80,
-  },
-];
+export default function TiffinsFirstSwipper({ categoryItems }) {
+  const fallbackImage = "/placeholder.jpg"; // put this file in your public folder
 
-const rightColumnItems = [
-  {
-    img: "https://media.istockphoto.com/id/1488737992/photo/upma-recipe-suji-ka-upma-rava-upma-with-red-and-coconut-chutney.jpg?s=612x612&w=0&k=20&c=dGTIRLT4c7XdC8xAqkumyuURqMAy3HNQccNjEQT3wmU=",
-    title: "Upma with Chutney",
-    quote: "Hot upma with coconut chutney",
-    price: 45,
-  },
-  {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdu0r5m-rVgdqn7zzbvdYsOSzm-7zCDVAaLQ&s",
-    title: "Poha",
-    quote: "Light & healthy morning snack",
-    price: 40,
-  },
-];
+  const { tiffinSlides, rightColumnItems } = useMemo(() => {
+    if (!categoryItems || categoryItems.length === 0) {
+      return { tiffinSlides: [], rightColumnItems: [] };
+    }
 
-export default function TiffinsFirstSwipper() {
+    // Shuffle array
+    const shuffled = [...categoryItems].sort(() => Math.random() - 0.5);
+
+    // Map to valid structure with image fallback
+    const mapped = shuffled.map((item) => {
+      let imgPath = Array.isArray(item.image) ? item.image[0] : item.image;
+
+      if (!imgPath) {
+        imgPath = fallbackImage;
+      }
+
+      // If not full URL and not starting with "/", assume it's in public folder
+      if (!imgPath.startsWith("http") && !imgPath.startsWith("/")) {
+        imgPath = "/" + imgPath;
+      }
+
+      return {
+        img: imgPath,
+        title: item.name || "No Title",
+        quote: item.description || "No description available",
+        price: (item.price || "₹0").replace("₹", ""),
+      };
+    });
+
+    return {
+      tiffinSlides: mapped.slice(0, 3),
+      rightColumnItems: mapped.slice(3, 5),
+    };
+  }, [categoryItems]);
+
   return (
-    <div className="flex flex-col md:flex-row gap-4  w-full">
+    <div className="flex flex-col md:flex-row gap-4 w-full">
       {/* Left Column - Swiper */}
       <div className="w-full md:w-3/5 h-[250px] sm:h-[300px] md:h-[500px] rounded-2xl overflow-hidden relative">
         <Swiper
@@ -89,46 +88,6 @@ export default function TiffinsFirstSwipper() {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/* Custom Navigation Buttons Spacing Fix */}
-        <style jsx global>{`
-          /* Buttons styling */
-          .swiper-button-next,
-          .swiper-button-prev {
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: black;
-            top: 50% !important;
-            transform: translateY(-50%);
-          }
-
-          /* Font size for arrows */
-          .swiper-button-next::after,
-          .swiper-button-prev::after {
-            font-size: 16px;
-            font-weight: bold;
-          }
-
-          /* Left button position with margin */
-          .swiper-button-prev {
-            left: 12px !important; /* move right a bit */
-          }
-
-          /* Right button position with margin */
-          .swiper-button-next {
-            right: 12px !important; /* move left a bit */
-          }
-
-          /* Pagination bullets bottom spacing */
-          .swiper-pagination {
-            bottom: 12px !important;
-          }
-        `}</style>
       </div>
 
       {/* Right Column - 2 stacked rows */}

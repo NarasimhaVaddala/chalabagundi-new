@@ -1,0 +1,218 @@
+{
+  "meals": {
+    "Veg Meals": [
+      {
+        "name": "Paneer Butter Masala",
+        "main_ingredient": "Paneer, Tomatoes, Cream",
+        "description": "Creamy and rich gravy with soft paneer cubes.",
+        "spice_level": "Medium",
+        "type": "North Indian",
+        "price": "₹220",
+        "image": ["pictures\Paneer Butter Masala _1.jpeg", "pictures\Paneer Butter Masala_2.jpeg"],
+        "rating": 4.5
+      },
+      {
+        "name": "Dal Tadka",
+        "main_ingredient": "Yellow Lentils, Tomatoes",
+        "description": "Tempered lentils with garlic and spices.",
+        "spice_level": "Medium",
+        "type": "North Indian",
+        "price": "₹150",
+        "image": ["pictures\Dal Tadka_1.jpeg", "pictures\Dal Tadka_2.jpeg"],
+        "rating": 4.3
+      },
+      {
+        "name": "Vegetable Biryani",
+        "main_ingredient": "Basmati Rice, Mixed Vegetables",
+        "description": "Aromatic rice cooked with assorted vegetables and spices.",
+        "spice_level": "Medium-High",
+        "type": "Hyderabadi",
+        "price": "₹180",
+        "image": ["pictures\Aloo Gobi_1.jpeg", "pictures\Vegetable Biryani_2.jpeg"],
+        "rating": 4.2
+      },
+      {
+        "name": "Aloo Gobi",
+        "main_ingredient": "Potatoes, Cauliflower",
+        "description": "Dry curry with potatoes and cauliflower.",
+        "spice_level": "Medium",
+        "type": "Punjabi",
+        "price": "₹160",
+        "image": ["pictures\Aloo Gobi_1.jpeg", "pictures\Palak Paneer_2.jpeg"],
+        "rating": 4.0
+      },
+      {
+        "name": "Palak Paneer",
+        "main_ingredient": "Spinach, Paneer",
+        "description": "Soft paneer cubes in a smooth spinach gravy.",
+        "spice_level": "Mild",
+        "type": "North Indian",
+        "price": "₹200",
+        "image": ["pictures\palak panner1.jpeg", "pictures\Palak Paneer_2.jpeg"],
+        "rating": 4.4
+      },
+      {
+        "name": "Chana Masala",
+        "main_ingredient": "Chickpeas, Onions, Tomatoes",
+        "description": "Spicy chickpea curry with tangy flavors.",
+        "spice_level": "Medium-High",
+        "type": "North Indian",
+        "price": "₹170",
+        "image": ["pictures\Chana Masala_1.jpeg", "pictures\Chana Masala_2.jpeg"],
+        "rating": 4.3
+      },
+      {
+        "name": "Mushroom Masala",
+        "main_ingredient": "Mushrooms, Onions, Cream",
+        "description": "Mushrooms cooked in a rich, spicy gravy.",
+        "spice_level": "Medium",
+        "type": "North Indian",
+        "price": "₹210",
+        "image": ["pictures\Mushroom Masala 1.jpeg", "pictures\Mushroom Masala_2.jpeg"],
+        "rating": 4.1
+      },
+      {
+        "name": "Malai Kofta",
+        "main_ingredient": "Paneer, Potatoes, Cream",
+        "description": "Deep-fried paneer balls in a creamy gravy.",
+        "spice_level": "Mild",
+        "type": "Mughlai",
+        "price": "₹230",
+        "image": ["pictures\Malai Kofta_1.jpeg", "pictures\Mushroom Masala_2.jpeg"],
+        "rating": 4.6
+      },
+      {
+        "name": "Baingan Bharta",
+        "main_ingredient": "Eggplant, Onions, Tomatoes",
+        "description": "Smoky roasted eggplant mashed with spices.",
+        "spice_level": "Medium",
+        "type": "North Indian",
+        "price": "₹160",
+        "image": ["pictures\Baingan Bharta 1.jpeg", "pictures\Baingan 2.jpg"],
+        "rating": 4.0
+      },
+      {
+        "name": "Mix Veg Curry",
+        "main_ingredient": "Carrots, Beans, Peas, Potatoes",
+        "description": "Assorted vegetables in a mildly spiced gravy.",
+        "spice_level": "Mild",
+        "type": "North Indian",
+        "price": "₹150",
+        "image": ["pictures\Mix Veg Curry 1.jpeg", "pictures\Mix Veg Curry_2.jpeg"],
+        "rating": 3.9
+      }
+    ],
+    "Non Veg Meals": [
+      {
+        "name": "Butter Chicken",
+        "main_ingredient": "Chicken, Tomatoes, Cream",
+        "description": "Creamy tomato-based curry with tender chicken pieces.",
+        "spice_level": "Medium",
+        "meat_type": "Chicken",
+        "bone_type": "Boneless",
+        "price": "₹280",
+        "image": ["pictures\Butter Chicken_1.jpeg", "pictures\Butter Chicken_2.jpeg"],
+        "rating": 4.8
+      },
+      {
+        "name": "Chicken Tikka Masala",
+        "main_ingredient": "Chicken, Yogurt, Spices",
+        "description": "Grilled chicken chunks in a spicy gravy.",
+        "spice_level": "Medium-High",
+        "meat_type": "Chicken",
+        "bone_type": "Boneless",
+        "price": "₹260",
+        "image": ["pictures\Chicken Tikka Masala 1.jpeg", "pictures\Chicken Tikka Masala 2.jpg"],
+        "rating": 4.7
+      },
+      {
+        "name": "Mutton Rogan Josh",
+        "main_ingredient": "Mutton, Yogurt, Kashmiri Spices",
+        "description": "Rich and aromatic mutton curry from Kashmir.",
+        "spice_level": "High",
+        "meat_type": "Mutton",
+        "bone_type": "Bone-in",
+        "price": "₹320",
+        "image": ["pictures\Mutton Rogan Josh 1.jpeg", "pictures\Mutton Rogan Josh_2.jpeg"],
+        "rating": 4.6
+      },
+      {
+        "name": "Fish Curry",
+        "main_ingredient": "Fish, Coconut, Tamarind",
+        "description": "South Indian-style fish in tangy coconut gravy.",
+        "spice_level": "Medium",
+        "meat_type": "Fish",
+        "bone_type": "Bone-in",
+        "price": "₹250",
+        "image": ["pictures\Fish Curry_1.jpeg", "pictures\Fish Curry_2.jpeg"],
+        "rating": 4.4
+      },
+      {
+        "name": "Prawn Masala",
+        "main_ingredient": "Prawns, Onions, Tomatoes",
+        "description": "Spicy and tangy prawn curry.",
+        "spice_level": "Medium-High",
+        "meat_type": "Prawns",
+        "bone_type": "Shell-on",
+        "price": "₹300",
+        "image": ["pictures\Prawn Masala 1.jpeg", "pictures\Prawn Masala_2.jpeg"],
+        "rating": 4.5
+      },
+      {
+        "name": "Chicken Chettinad",
+        "main_ingredient": "Chicken, Black Pepper, Coconut",
+        "description": "Spicy Tamil Nadu-style chicken curry.",
+        "spice_level": "High",
+        "meat_type": "Chicken",
+        "bone_type": "Bone-in",
+        "price": "₹270",
+        "image": ["pictures\Chicken Chettinad_1.jpeg", "pictures\Chicken Chettinad_2.jpeg"],
+        "rating": 4.6
+      },
+      {
+        "name": "Egg Curry",
+        "main_ingredient": "Eggs, Onions, Tomatoes",
+        "description": "Hard-boiled eggs in a spicy gravy.",
+        "spice_level": "Medium",
+        "meat_type": "Eggs",
+        "bone_type": "None",
+        "price": "₹140",
+        "image": ["pictures\Egg Curry 1.jpeg", "pictures\Egg Curry_2.jpeg"],
+        "rating": 4.0
+      },
+      {
+        "name": "Kadai Chicken",
+        "main_ingredient": "Chicken, Capsicum, Onions",
+        "description": "Stir-fried chicken with bell peppers and spices.",
+        "spice_level": "High",
+        "meat_type": "Chicken",
+        "bone_type": "Bone-in",
+        "price": "₹260",
+        "image": ["pictures\Kadai Chicken 1.jpeg", "pictures\Kadai Chicken_2.jpeg"],
+        "rating": 4.5
+      },
+      {
+        "name": "Lamb Korma",
+        "main_ingredient": "Lamb, Yogurt, Cashews",
+        "description": "Mild and creamy lamb curry with nuts.",
+        "spice_level": "Mild",
+        "meat_type": "Lamb",
+        "bone_type": "Bone-in",
+        "price": "₹340",
+        "image": ["pictures\Lamb Korma_1.jpeg", "pictures\Lamb Korma_2.jpeg"],
+        "rating": 4.7
+      },
+      {
+        "name": "Chilli Chicken",
+        "main_ingredient": "Chicken, Soy Sauce, Green Chillies",
+        "description": "Indo-Chinese spicy fried chicken.",
+        "spice_level": "High",
+        "meat_type": "Chicken",
+        "bone_type": "Boneless",
+        "price": "₹240",
+        "image": ["pictures\Chilli Chicken_1.jpeg", "pictures\Chilli Chicken_2.jpeg"],
+        "rating": 4.3
+      }
+    ]
+  }
+}

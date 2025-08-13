@@ -1,10 +1,18 @@
 "use client";
+import { addToWishlist, removeFromWishlist } from "@/Store/slice/wishlistSlice";
 import { ItemCard } from "@/Utils/ItemCard";
 import TitleWithArrow from "@/Utils/TitleWithArrow";
+import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const VegItems = () => {
+const VegItems = ({ items, subCat, category }) => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
   const scrollRef = useRef(null);
+
+  const wishlistItems = useSelector((state) => state.wishlist.items);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -16,18 +24,35 @@ const VegItems = () => {
     }
   };
 
-  const items = Array.from({ length: 20 }, (_, i) => ({
-    id: i + 1,
-    name: `Item ${i + 1}`,
-  }));
+  const handleItemClick = (item) => {
+    const query = new URLSearchParams({
+      subcategory: subCat,
+      name: item.name,
+    }).toString();
+    router.push(`/${category}?${query}`);
+  };
+
+  const handleWishlistAdded = (item) => {
+    const exists = wishlistItems.some((w) => {
+      return w.name === item.name && w.category === category;
+    });
+
+    exists
+      ? dispatch(removeFromWishlist({ name: item.name, category: category }))
+      : dispatch(addToWishlist({ ...item, category, subcategory: subCat }));
+  };
+
+  const isItemInWishlist = (item) =>
+    wishlistItems.some((w) => w.name === item.name && w.category === category);
+
   return (
     <div className="w-full flex flex-col gap-4 mt-3 relative">
-      {/* Header */}
       <TitleWithArrow
-        title={"Fruits & Vegetables"}
-        description={
-          "Buy farm fresh fruits and vegetables online at the best prices"
-        }
+        title={`${
+          category?.slice(0, 1)?.toUpperCase() +
+          category?.slice(1)?.toLowerCase()
+        } & ${subCat}`}
+        description={items?.[0]?.description}
         onScrollLeft={() => scroll("left")}
         onScrollRight={() => scroll("right")}
       />
@@ -38,16 +63,25 @@ const VegItems = () => {
         {/* First item: Big image */}
         <div className="flex-shrink-0 w-[230px] h-[330px] mr-4">
           <img
-            src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80"
+            src={items?.[0]?.image?.[0]}
             alt="Featured"
             className="w-full h-full object-cover "
             draggable={false}
           />
         </div>
 
-        {/* Following items: ItemCards */}
-        {items.map((item) => (
-          <ItemCard key={item.id} name={item.name} isAvailableDis={false} />
+        {items?.slice(1).map((item) => (
+          <ItemCard
+            key={item.id}
+            name={item.name}
+            image={item?.image?.[0]}
+            rating={item?.rating}
+            price={item?.price}
+            description={item?.description}
+            previewItem={() => handleItemClick(item)}
+            toggleWishlist={() => handleWishlistAdded(item)}
+            isInWishlist={isItemInWishlist(item)}
+          />
         ))}
       </div>
     </div>

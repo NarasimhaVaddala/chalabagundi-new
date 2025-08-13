@@ -16,11 +16,15 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "media.istockphoto.com", // <-- added this
+        hostname: "media.istockphoto.com",
       },
       {
         protocol: "https",
         hostname: "cdn.pixabay.com",
+      },
+      {
+        protocol: "https",
+        hostname: "your-new-domain.com", // <-- Added
       },
     ],
   },

@@ -1,8 +1,9 @@
 import { ChevronRight } from "lucide-react";
 
-export const ShopBtn = ({ style = "w-[160px]" }) => {
+export const ShopBtn = ({ style = "w-[160px]", onClick }) => {
   return (
     <button
+      onClick={onClick}
       className={`
         ${style}
       cursor-pointer
