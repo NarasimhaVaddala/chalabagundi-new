@@ -72,7 +72,7 @@ const VegItems = ({ items, subCat, category }) => {
 
         {items?.slice(1).map((item) => (
           <ItemCard
-            key={item.id}
+            key={item.name}
             name={item.name}
             image={item?.image?.[0]}
             rating={item?.rating}
