@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 
 const CardItem = ({ item }) => {
   const dispatch = useDispatch();
-  console.log("item", item);
+  // console.log("item", item);
 
   return (
     <div className="w-full h-[165px] md:h-[150px] flex items-start gap-5 shadow rounded-md overflow-hidden">
