@@ -12,8 +12,6 @@ export default function TiffinGrid({ items = [] }) {
     }, {})
   );
 
-  console.log("uniqueTypeItems", uniqueTypeItems);
-
   return (
     <div className="w-full">
       <div className="flex flex-wrap w-full">

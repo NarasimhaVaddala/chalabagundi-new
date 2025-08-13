@@ -8,9 +8,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { ShopBtn } from "@/Utils/ShopBtn";
 import { useMemo } from "react";
+import { useRouter } from "next/navigation";
 
-export default function TiffinsFirstSwipper({ categoryItems }) {
-  const fallbackImage = "/placeholder.jpg"; // put this file in your public folder
+export default function TiffinsFirstSwipper({ categoryItems, category }) {
+  const router = useRouter();
+
+  const fallbackImage = "/placeholder.jpg";
 
   const { tiffinSlides, rightColumnItems } = useMemo(() => {
     if (!categoryItems || categoryItems.length === 0) {
@@ -47,9 +50,12 @@ export default function TiffinsFirstSwipper({ categoryItems }) {
     };
   }, [categoryItems]);
 
+  const handleShopClick = () => {
+    router.push(`/filter-items?category=${encodeURIComponent(category)}`);
+  };
+
   return (
     <div className="flex flex-col md:flex-row gap-4 w-full">
-      {/* Left Column - Swiper */}
       <div className="w-full md:w-3/5 h-[250px] sm:h-[300px] md:h-[500px] rounded-2xl overflow-hidden relative">
         <Swiper
           spaceBetween={10}
@@ -81,7 +87,7 @@ export default function TiffinsFirstSwipper({ categoryItems }) {
                     ₹{slide.price} /-
                   </span>
                   <div className="mt-4 sm:mt-6">
-                    <ShopBtn />
+                    <ShopBtn onClick={handleShopClick} />
                   </div>
                 </div>
               </div>
@@ -114,7 +120,7 @@ export default function TiffinsFirstSwipper({ categoryItems }) {
                 ₹{item.price} /-
               </span>
               <div className="mt-2 sm:mt-4">
-                <ShopBtn />
+                <ShopBtn onClick={handleShopClick} />
               </div>
             </div>
           </div>

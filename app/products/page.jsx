@@ -13,7 +13,7 @@ const page = () => {
 
   return (
     <div className="w-full flex flex-col gap-10 px-[clamp(1rem,6vw,5rem)] py-2 mt-7">
-      <TiffinsFirstSwipper categoryItems={categoryItems} />
+      <TiffinsFirstSwipper categoryItems={categoryItems} category={category} />
       <TiffinGrid items={categoryItems} />
       <BestSellers
         title="Super Deals Of The Week"
@@ -22,14 +22,11 @@ const page = () => {
 
       {subCategoryKeys.map((key, index) => (
         <div key={key}>
-          {/* Render VegItems for this subcategory */}
           <VegItems
             items={subCategories[key]}
             subCat={key}
             category={category}
           />
-
-          {/* Insert HomeFirstAd only between VegItems, not after the last one */}
           {index < subCategoryKeys.length - 1 && (
             <div className="mt-10">
               <HomeFirstAd />
@@ -38,7 +35,11 @@ const page = () => {
         </div>
       ))}
 
-      <NewlyArrivedItems />
+      <NewlyArrivedItems
+        subCategories={subCategories}
+        subCategoryKeys={subCategoryKeys}
+        category={category}
+      />
     </div>
   );
 };
