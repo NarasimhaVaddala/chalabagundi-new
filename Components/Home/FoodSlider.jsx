@@ -34,6 +34,28 @@ export default function FoodSlider() {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-PB5nXJUMhZqfJOirqGEtgC7syCBNMgxX2ywH12BGzUGEnFNQL098upxPFqMy91UqaWE&usqp=CAU",
       category: "pickle",
     },
+    {
+      title: "Hearty Meals",
+      quote: "A fulfilling meal for your family.",
+      price: 300,
+      img: "https://freshmealplan.com/cdn/shop/files/unnamed_1.png?v=1750701697",
+      category: "meals",
+    },
+    {
+      title: "Chocolate Cake",
+      quote: "Sweet indulgence in every bite.",
+      price: 400,
+      img: "https://img.freepik.com/free-photo/birthday-cake-with-roses_23-2151935839.jpg?semt=ais_hybrid&w=740&q=80",
+      category: "cakes",
+    },
+
+    {
+      title: "Savory Snacks",
+      quote: "Crunchy bites for any time of the day.",
+      price: 100,
+      img: "https://media.istockphoto.com/id/1263686908/photo/mixed-salty-snack-flat-lay-table-scene-on-a-wood-background.jpg?s=612x612&w=0&k=20&c=rCZ-gpvz--NpeNA0cYGCyJj3EK0kFUSkvdsow9u4I3o=",
+      category: "snacks",
+    },
   ];
 
   const handleShopClick = (category) => {

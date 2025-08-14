@@ -72,7 +72,7 @@ export const HeaderLast = () => {
             {categories.map((cat) => (
               <div
                 key={cat.name}
-                className="flex justify-between items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                className="text-black flex justify-between items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
                 onMouseEnter={() => setActiveCategory(cat.name)}
               >
                 {cat.name}
@@ -80,8 +80,6 @@ export const HeaderLast = () => {
               </div>
             ))}
           </div>
-
-          {/* Subcategory Panel */}
           {activeCategory && (
             <div
               className="absolute left-[14rem] top-full mt-2 w-56 bg-white rounded shadow-lg transition-all duration-300 z-50"
@@ -94,8 +92,8 @@ export const HeaderLast = () => {
                     key={label}
                     className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer"
                   >
-                    <Icon size={16} className="text-gray-500" />
-                    <span>{label}</span>
+                    <Icon size={16} className="text-black" />
+                    <span className="text-black">{label}</span>
                   </div>
                 ))}
             </div>
@@ -134,6 +132,33 @@ export const HeaderLast = () => {
                 className="block px-4 py-2 hover:bg-gray-100 cursor-pointer"
               >
                 Pickles
+              </Link>
+              <Link
+                href={{
+                  pathname: "/products",
+                  query: { category: "snacks" },
+                }}
+                className="block px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              >
+                Snacks
+              </Link>
+              <Link
+                href={{
+                  pathname: "/products",
+                  query: { category: "bakery" },
+                }}
+                className="block px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              >
+                Bakery
+              </Link>
+              <Link
+                href={{
+                  pathname: "/products",
+                  query: { category: "meals" },
+                }}
+                className="block px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              >
+                Meals
               </Link>
             </div>
           </div>
@@ -223,6 +248,28 @@ export const HeaderLast = () => {
                     className="hover:text-white"
                   >
                     Pickles
+                  </Link>
+                  <Link
+                    href="/meals"
+                    onClick={() => setMenuOpen(false)}
+                    className="hover:text-white"
+                  >
+                    Meals
+                  </Link>
+
+                  <Link
+                    href="/cakes"
+                    onClick={() => setMenuOpen(false)}
+                    className="hover:text-white"
+                  >
+                    Bakery
+                  </Link>
+                  <Link
+                    href="/cakes"
+                    onClick={() => setMenuOpen(false)}
+                    className="hover:text-white"
+                  >
+                    Snacks
                   </Link>
                 </div>
               </details>

@@ -3,7 +3,7 @@ import CardItem from "@/Components/card/CardItem";
 import AuthModal from "@/Components/card/Modal/AuthModal";
 import EmptyComponent from "@/Components/wishlist/EmptyComponent";
 import { useCartHook } from "@/Hooks/cart/Cart.Hook";
-import Modal from "@/Utils/Modal";
+
 import React from "react";
 import { useSelector } from "react-redux";
 

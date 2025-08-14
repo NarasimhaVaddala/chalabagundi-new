@@ -1,42 +1,79 @@
+"use client";
+import { useRouter } from "next/navigation";
+
 export const PopularCategories = () => {
+  const router = useRouter();
   const categories = [
     {
       sub: [
         {
           name: "Veg Biryani",
-          products: 8,
-          img: "https://via.placeholder.com/60",
+          products: 2,
+          img: "/bg-removes/veg-biryani.png",
+          category: "biryani",
+          subcat: "vegetarian",
         },
         {
           name: "Non Biryani",
-          products: 8,
-          img: "https://via.placeholder.com/60",
+          products: 16,
+          img: "/bg-removes/non-veg-biryani.png",
+          category: "biryani",
+          subcat: "non_vegetarian",
         },
-      ],
-    },
-    {
-      sub: [
-        { name: "Pickle", products: 8, img: "https://via.placeholder.com/60" },
-        { name: "Tiffins", products: 8, img: "https://via.placeholder.com/60" },
       ],
     },
     {
       sub: [
         {
-          name: "Ice Cream",
-          products: 8,
-          img: "https://via.placeholder.com/60",
+          name: "Veg Pickle",
+          products: 22,
+          img: "/bg-removes/pickles.png",
+          category: "pickle",
+          subcat: "veg",
         },
-        { name: "Juices", products: 8, img: "https://via.placeholder.com/60" },
+
+        {
+          name: "Non Veg Pickle",
+          products: 31,
+          img: "/bg-removes/pickles.png",
+          category: "pickle",
+          subcat: "non veg",
+        },
       ],
     },
     {
       sub: [
-        { name: "Snacks", products: 8, img: "https://via.placeholder.com/60" },
-        { name: "Cakes", products: 8, img: "https://via.placeholder.com/60" },
+        {
+          name: "Tiffins",
+          products: 24,
+          img: "/bg-removes/tiffin.png",
+          category: "pickle",
+          subcat: "non veg",
+        },
+        {
+          name: "Meals",
+          products: 5,
+          img: "/bg-removes/meals.png",
+          category: "meals",
+          subcat: "non veg",
+        },
+      ],
+    },
+    {
+      sub: [
+        { name: "Snacks", products: 8, img: "/bg-removes/snaks.png" },
+        { name: "Cakes", products: 8, img: "/bg-removes/cake.png" },
       ],
     },
   ];
+
+  const handleShopClick = (category, subcat) => {
+    router.push(
+      `/filter-items?category=${encodeURIComponent(
+        category
+      )}&subcategory=${encodeURIComponent(subcat)}`
+    );
+  };
 
   return (
     <div className="w-full">
@@ -64,8 +101,9 @@ export const PopularCategories = () => {
           >
             {cat.sub.map((subCat, subIdx) => (
               <div
+                onClick={() => handleShopClick(subCat.category, subCat.subcat)}
                 key={subIdx}
-                className="flex-1 flex items-center justify-between p-4 border-b sm:border-b border-gray-200 hover:border-gray-400 transition-all duration-300 cursor-pointer"
+                className="flex-1 flex items-center justify-between p-4 border-b sm:border-b border-gray-200 hover:border-gray-400 transition-all duration-300 cursor-pointer relative"
               >
                 <div>
                   <h4 className="font-semibold">{subCat.name}</h4>
@@ -76,7 +114,7 @@ export const PopularCategories = () => {
                 <img
                   src={subCat.img}
                   alt={subCat.name}
-                  className="w-12 h-12 object-cover"
+                  className="w-20 h-20 object-cover absolute right-3 bottom-5"
                 />
               </div>
             ))}

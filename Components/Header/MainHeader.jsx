@@ -1,45 +1,37 @@
 "use client";
-
-import { Heart, Search, User, ShoppingCart } from "lucide-react";
-import Image from "next/image";
+import { Heart, User, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { SearchBar } from "./HeaderSearch";
 
 export const MainHeader = () => {
   const router = useRouter();
   const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const cartItems = useSelector((state) => state.cart.items);
   const wishlistItems = useSelector((state) => state.wishlist.items);
 
   return (
     <>
-      {/* Header */}
-      <div className="w-full flex justify-between items-center px-[clamp(1rem,6vw,5rem)] py-5 border-b border-b-gray-200">
-        {/* Logo */}
+      <div className="w-full flex justify-between items-center px-[clamp(1rem,6vw,5rem)] py-5 border-b border-b-gray-200 relative">
         <Link href="/">
-          <Image
-            src="/mixy-logo.png"
-            alt="Mixy"
-            width={40}
-            height={40}
-            className="rounded transition-transform group-hover:scale-110"
-          />
+          <span className="text-sm md:text-xl font-semibold text-[#184d46]">
+            <span className="text-xl md:text-4xl font-semibold text-[#184d46]">
+              చా
+            </span>
+            లా బాగుంధి
+          </span>
         </Link>
 
-        {/* Desktop Search Bar */}
-        <div className="hidden md:flex w-full md:w-[400px] lg:w-[600px] bg-[#f2f3f5] px-6 justify-between items-center h-[50px] rounded-3xl">
-          <input
-            type="text"
-            className="w-[95%] h-full border-none outline-none bg-transparent"
-            placeholder="Search Product...!"
-          />
-          <Search color="gray" size={18} />
+        {/* Desktop Search */}
+        <div className="hidden md:block w-full md:w-[400px] lg:w-[600px]">
+          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </div>
 
         {/* Icons */}
-        <div className="flex gap-5 items-center">
+        <div className="flex gap-2 md:gap-5 items-center">
           <span className="cursor-pointer w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center">
             <User size={19} />
           </span>
@@ -71,20 +63,19 @@ export const MainHeader = () => {
             onClick={() => setShowMobileSearch((prev) => !prev)}
             className="md:hidden w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center cursor-pointer"
           >
-            <Search size={19} />
+            <SearchBar
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              className="h-full"
+            />
           </span>
         </div>
       </div>
 
-      {/* Mobile Search Bar - Column Layout */}
+      {/* Mobile Search Bar */}
       {showMobileSearch && (
-        <div className="md:hidden w-full bg-[#f2f3f5] px-6 flex justify-between items-center h-[50px] rounded-3xl mt-3">
-          <input
-            type="text"
-            className="w-[95%] h-full border-none outline-none bg-transparent"
-            placeholder="Search Product...!"
-          />
-          <Search color="gray" size={18} />
+        <div className="md:hidden mb-4 w-full mt-3">
+          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </div>
       )}
     </>

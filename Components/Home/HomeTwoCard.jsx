@@ -1,20 +1,39 @@
 import { ShopBtn } from "@/Utils/ShopBtn";
 
 export const HomeTwoCard = () => {
+  // const cards = [
+  //   {
+  //     title: "Spicy Chicken Biryani",
+  //     description:
+  //       "Rich, flavorful Hyderabadi chicken biryani made with secret spices.",
+  //     bg: "bg-gradient-to-r from-orange-100 to-orange-200",
+  //     img: "/biryani-transparent.png",
+  //     width: "w-full md:w-[70%]",
+  //   },
+  //   {
+  //     title: "Sweet Lassi",
+  //     description: "Cool, creamy, and refreshing lassi to balance the spice.",
+  //     bg: "bg-gradient-to-r from-blue-100 to-blue-200",
+  //     img: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Lassi_glass.jpg",
+  //     width: "w-full md:w-[30%]",
+  //   },
+  // ];
+
   const cards = [
     {
-      title: "Spicy Chicken Biryani",
+      title: "Chocolate Fudge Cake",
       description:
-        "Rich, flavorful Hyderabadi chicken biryani made with secret spices.",
-      bg: "bg-gradient-to-r from-orange-100 to-orange-200",
-      img: "/biryani-transparent.png",
+        "Moist and rich chocolate cake layered with creamy fudge frosting.",
+      bg: "bg-gradient-to-r from-pink-100 to-pink-200",
+      img: "/bg-removes/cake_chocolate_flavor.png",
       width: "w-full md:w-[70%]",
     },
     {
-      title: "Sweet Lassi",
-      description: "Cool, creamy, and refreshing lassi to balance the spice.",
-      bg: "bg-gradient-to-r from-blue-100 to-blue-200",
-      img: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Lassi_glass.jpg",
+      title: "Crispy Veg Samosa",
+      description:
+        "Golden fried pastry stuffed with spicy potato and pea filling.",
+      bg: "bg-gradient-to-r from-yellow-100 to-yellow-200",
+      img: "/bg-removes/samosa.png",
       width: "w-full md:w-[30%]",
     },
   ];
