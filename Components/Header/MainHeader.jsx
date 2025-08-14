@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-export const MainHeader = () => {
+export const MainHeader = ({ setOpen }) => {
   const router = useRouter();
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const cartItems = useSelector((state) => state.cart.items);
@@ -17,7 +17,6 @@ export const MainHeader = () => {
     <>
       {/* Header */}
       <div className="w-full flex justify-between items-center px-[clamp(1rem,6vw,5rem)] py-5 border-b border-b-gray-200">
-        {/* Logo */}
         <Link href="/">
           <Image
             src="/mixy-logo.png"
@@ -28,7 +27,6 @@ export const MainHeader = () => {
           />
         </Link>
 
-        {/* Desktop Search Bar */}
         <div className="hidden md:flex w-full md:w-[400px] lg:w-[600px] bg-[#f2f3f5] px-6 justify-between items-center h-[50px] rounded-3xl">
           <input
             type="text"
@@ -40,9 +38,12 @@ export const MainHeader = () => {
 
         {/* Icons */}
         <div className="flex gap-5 items-center">
-          <span className="cursor-pointer w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center">
+          <button
+            onClick={setOpen}
+            className="cursor-pointer w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center"
+          >
             <User size={19} />
-          </span>
+          </button>
           <span
             onClick={() => router.push("/wishlist")}
             className="cursor-pointer w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center relative"

@@ -1,22 +1,25 @@
 "use client";
+import LoginSignupBox from "@/Components/Auth/LoginSignUpBox";
 import CardItem from "@/Components/card/CardItem";
 import AuthModal from "@/Components/card/Modal/AuthModal";
 import EmptyComponent from "@/Components/wishlist/EmptyComponent";
 import { useCartHook } from "@/Hooks/cart/Cart.Hook";
 import Modal from "@/Utils/Modal";
 import React from "react";
-import { useSelector } from "react-redux";
 
 const Page = () => {
-  const cartItems = useSelector((state) => state.cart.items);
-
-  const totalPrice = cartItems.reduce(
-    (total, item) =>
-      total + parseInt(item?.price?.replace(/[^0-9]/g, ""), 10) * item.quantity,
-    0
-  );
-
-  const { handleCheckOut, isLogin, setIsLogin } = useCartHook();
+  const {
+    FormWrapper,
+    handleCheckOut,
+    errors,
+    register,
+    open,
+    setOpen,
+    otpSent,
+    signUp,
+    cartItems,
+    totalPrice,
+  } = useCartHook();
 
   return (
     <>
@@ -47,7 +50,16 @@ const Page = () => {
           </>
         )}
       </div>
-      <AuthModal isClose={setIsLogin} isOpen={isLogin} />
+      {open && (
+        <LoginSignupBox
+          FormWrapper={FormWrapper}
+          errors={errors}
+          register={register}
+          closeFn={() => setOpen(!open)}
+          otpSent={otpSent}
+          signUp={signUp}
+        />
+      )}
     </>
   );
 };
