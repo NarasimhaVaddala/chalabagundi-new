@@ -1,16 +1,19 @@
 "use client";
 import { allProductItems } from "@/public/data/items.data";
 import { useSearchParams } from "next/navigation";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 export const useFilterCardHook = () => {
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
+  const subcategory = searchParams.get("subcategory");
 
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedFilter, setSelectedFilter] = useState("all");
   const [subCategoryTypes, setSubCategoryTypes] = useState({});
-  const [activeSubCategory, setActiveSubCategory] = useState("all");
+  const [activeSubCategory, setActiveSubCategory] = useState(
+    subcategory ?? "all"
+  );
   const [activeType, setActiveType] = useState("all");
   const [selectedRating, setSelectedRating] = useState(null);
   const [priceRange, setPriceRange] = useState({ min: 0, max: 2000 });
@@ -42,6 +45,10 @@ export const useFilterCardHook = () => {
     setSubCategoryTypes(subCategoryMap);
     return mergedItems;
   }, [category]);
+
+  useEffect(() => {
+    setActiveSubCategory(subcategory ?? "all");
+  }, [subcategory]);
 
   const filteredItems = useMemo(() => {
     let filtered = categoryItems;

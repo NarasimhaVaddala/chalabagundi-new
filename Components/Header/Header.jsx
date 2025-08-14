@@ -7,9 +7,7 @@ export const Header = () => {
     <div className="w-full flex flex-col">
       <HeaderTop />
       <MainHeader />
-      <div className="sticky top-0 z-50 shadow-md">
-        <HeaderLast />
-      </div>
+      <HeaderLast />
     </div>
   );
 };
