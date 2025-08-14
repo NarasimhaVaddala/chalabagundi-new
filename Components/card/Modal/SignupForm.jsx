@@ -48,7 +48,7 @@ export default function SignUpForm({ mobile }) {
       setLoading(true);
       try {
         await API.post("/auth/user-sign-up", signupData);
-        // nagivate to address form or user profile
+        // nagivate to address form or user profile -- ikkada nunchi chudu
       } catch (error) {
         showErrorMessage(
           error?.response?.data?.message || "Something went wrong"
