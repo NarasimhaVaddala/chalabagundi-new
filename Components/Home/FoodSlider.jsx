@@ -8,28 +8,59 @@ import { ShopBtn } from "@/Utils/ShopBtn";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useRouter } from "next/navigation";
 
 export default function FoodSlider() {
+  const router = useRouter();
   const slides = [
     {
       title: "Delicious Tiffins",
       quote: "Start your day the tasty way!",
       price: 150,
       img: "https://t4.ftcdn.net/jpg/01/43/08/01/360_F_143080110_bhy9PAHvK2A5K2HrlJqEnhHlJOXEZ8k0.jpg",
+      category: "tiffins",
     },
     {
       title: "Authentic Biryani",
       quote: "A royal treat for your taste buds.",
       price: 250,
       img: "https://t3.ftcdn.net/jpg/13/63/66/86/360_F_1363668605_cflY80dDX4Zwn9muOqfnZ219f5sLTOOD.jpg",
+      category: "biryani",
     },
     {
       title: "Homemade Pickles",
       quote: "The flavor of home in every bite.",
       price: 120,
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-PB5nXJUMhZqfJOirqGEtgC7syCBNMgxX2ywH12BGzUGEnFNQL098upxPFqMy91UqaWE&usqp=CAU",
+      category: "pickle",
+    },
+    {
+      title: "Hearty Meals",
+      quote: "A fulfilling meal for your family.",
+      price: 300,
+      img: "https://freshmealplan.com/cdn/shop/files/unnamed_1.png?v=1750701697",
+      category: "meals",
+    },
+    {
+      title: "Chocolate Cake",
+      quote: "Sweet indulgence in every bite.",
+      price: 400,
+      img: "https://img.freepik.com/free-photo/birthday-cake-with-roses_23-2151935839.jpg?semt=ais_hybrid&w=740&q=80",
+      category: "cakes",
+    },
+
+    {
+      title: "Savory Snacks",
+      quote: "Crunchy bites for any time of the day.",
+      price: 100,
+      img: "https://media.istockphoto.com/id/1263686908/photo/mixed-salty-snack-flat-lay-table-scene-on-a-wood-background.jpg?s=612x612&w=0&k=20&c=rCZ-gpvz--NpeNA0cYGCyJj3EK0kFUSkvdsow9u4I3o=",
+      category: "snacks",
     },
   ];
+
+  const handleShopClick = (category) => {
+    router.push(`/filter-items?category=${encodeURIComponent(category)}`);
+  };
 
   return (
     <div className="w-full relative">
@@ -67,7 +98,7 @@ export default function FoodSlider() {
                   ₹{slide.price} /-
                 </span>
                 <div className="mt-6">
-                  <ShopBtn />
+                  <ShopBtn onClick={() => handleShopClick(slide.category)} />
                 </div>
               </div>
             </div>

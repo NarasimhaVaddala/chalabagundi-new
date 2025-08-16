@@ -1,35 +1,30 @@
 "use client";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ItemCard } from "@/Utils/ItemCard";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Loader } from "lucide-react";
 import TitleWithArrow from "@/Utils/TitleWithArrow";
+import { allProductItems } from "@/public/data/items.data";
+import { useHomeBestSellerHook } from "@/Hooks/HomeBestSeller.Hook";
+import LoaderUi from "@/Utils/Loader";
+import { useSelector } from "react-redux";
 
 export const BestSellers = ({
   title = "Best Sellers",
   description = "Add bestselling products to weekly line up",
-  product,
   isAvailableDis = false,
 }) => {
-  const scrollRef = useRef(null);
-
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = 300; // pixels per click
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const items = Array.from({ length: 20 }, (_, i) => ({
-    id: i + 1,
-    name: `Item ${i + 1}`,
-  }));
+  const {
+    items,
+    scroll,
+    scrollRef,
+    handleItemClick,
+    handleWishlistAdded,
+    isLoading,
+    isItemInWishlist,
+  } = useHomeBestSellerHook();
 
   return (
     <div className="w-full flex flex-col gap-4 mt-3 relative">
-      {/* Header */}
       <TitleWithArrow
         title={title}
         description={description}
@@ -37,19 +32,33 @@ export const BestSellers = ({
         onScrollRight={() => scroll("right")}
       />
 
-      {/* Scrollable Row */}
-      <div
-        ref={scrollRef}
-        className="flex  overflow-x-auto scrollbar-hide scroll-smooth border-y border-gray-200"
-      >
-        {items.map((item) => (
-          <ItemCard
-            key={item.id}
-            name={item.name}
-            isAvailableDis={isAvailableDis}
-          />
-        ))}
-      </div>
+      {isLoading ? (
+        <LoaderUi />
+      ) : (
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto scrollbar-hide scroll-smooth border-y border-gray-200"
+        >
+          {items?.map((item, idx) => (
+            <ItemCard
+              key={idx}
+              name={item.name}
+              previewItem={() =>
+                handleItemClick(item._category, item._subcategory, item)
+              }
+              toggleWishlist={() =>
+                handleWishlistAdded(item._category, item._subcategory, item)
+              }
+              image={item?.image?.[0]}
+              isAvailableDis={isAvailableDis}
+              rating={item?.rating}
+              price={item?.price}
+              description={item?.description}
+              isInWishlist={isItemInWishlist(item)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

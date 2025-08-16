@@ -4,9 +4,12 @@ import { HomeColorCard } from "@/Components/Home/HomeColorCard";
 import { HomeFirstAd } from "@/Components/Home/HomeFirstAd";
 import { HomeTwoCard } from "@/Components/Home/HomeTwoCard";
 import { PopularCategories } from "@/Components/Home/PopularCategories";
+import { allProductItems } from "@/public/data/items.data";
 import Image from "next/image";
 
 export default function Home() {
+  console.log("allProductItems", allProductItems);
+
   return (
     <div className="w-full flex flex-col gap-4">
       <FoodSlider />

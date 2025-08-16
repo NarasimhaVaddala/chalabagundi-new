@@ -6,6 +6,7 @@ const TitleWithArrow = ({
   description,
   onScrollLeft,
   onScrollRight,
+  isDisplayArrow = true,
 }) => {
   return (
     <div className="w-full flex justify-between items-center">
@@ -13,20 +14,22 @@ const TitleWithArrow = ({
         <h2 className="text-[20px] font-semibold">{title}</h2>
         <p className="text-base text-gray-700">{description}</p>
       </div>
-      <div className="flex gap-2">
-        <button
-          onClick={onScrollLeft}
-          className="p-2 rounded-full bg-gray-200 hover:bg-[#179958] cursor-pointer transition-colors duration-300"
-        >
-          <ChevronLeft size={20} />
-        </button>
-        <button
-          onClick={onScrollRight}
-          className="p-2 rounded-full bg-gray-200 hover:bg-[#179958] cursor-pointer transition-colors duration-300"
-        >
-          <ChevronRight size={20} />
-        </button>
-      </div>
+      {isDisplayArrow && (
+        <div className="flex gap-2">
+          <button
+            onClick={onScrollLeft}
+            className="p-2 rounded-full bg-gray-200 hover:bg-[#179958] cursor-pointer transition-colors duration-300"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={onScrollRight}
+            className="p-2 rounded-full bg-gray-200 hover:bg-[#179958] cursor-pointer transition-colors duration-300"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
