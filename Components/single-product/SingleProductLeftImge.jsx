@@ -1,7 +1,9 @@
 "use client";
 import React, { useRef, useState } from "react";
 
+
 const SingleProductLeftImage = ({ image }) => {
+
   const imgRef = useRef(null);
   const [zoom, setZoom] = useState(false);
 
@@ -18,7 +20,6 @@ const SingleProductLeftImage = ({ image }) => {
     imgRef.current.style.transformOrigin = `${x}% ${y}%`;
   };
 
-  console.log("image", image);
 
   return (
     <div className="flex flex-col  w-[46%]">
@@ -36,7 +37,11 @@ const SingleProductLeftImage = ({ image }) => {
       >
         <img
           ref={imgRef}
-          src={image}
+
+          src={currentImage}
+
+//           src={image}
+
           alt="Product"
           className={`w-full h-full object-cover transition-transform duration-200 ${
             zoom ? "scale-[2.5]" : "scale-100"
