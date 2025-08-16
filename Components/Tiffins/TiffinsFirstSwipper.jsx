@@ -40,13 +40,13 @@ export default function TiffinsFirstSwipper({ categoryItems, category }) {
         img: imgPath,
         title: item.name || "No Title",
         quote: item.description || "No description available",
-        price: (item.price || "₹0").replace("₹", ""),
+        price: (item.price || "₹0")?.replace("₹", ""),
       };
     });
 
     return {
-      tiffinSlides: mapped.slice(0, 3),
-      rightColumnItems: mapped.slice(3, 5),
+      tiffinSlides: mapped?.slice(0, 3),
+      rightColumnItems: mapped?.slice(3, 5),
     };
   }, [categoryItems]);
 

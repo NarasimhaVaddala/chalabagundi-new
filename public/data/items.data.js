@@ -1,4 +1,5 @@
 import { biryani } from "./biryani";
+import { tiffins } from "./tiffins";
 
 export const allProductItems = [
   {
@@ -1087,5 +1088,8 @@ export const allProductItems = [
   },
   {
     biryani,
+  },
+  {
+    tiffins,
   },
 ];
