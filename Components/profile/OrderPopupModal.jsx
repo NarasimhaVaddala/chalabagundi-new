@@ -1,5 +1,5 @@
-import { imageUrl } from "@/core/url";
-import CustomButton from "@/utils/CustomButton";
+import { buildImageUrl } from "@/core/url";
+import CustomButton from "@/Utils/CustomButton";
 import React from "react";
 
 export default function OrderPopupModal({ order, cancelOrder }) {
@@ -79,7 +79,7 @@ export default function OrderPopupModal({ order, cancelOrder }) {
               {/* Image */}
               {item.images.length > 0 && (
                 <img
-                  src={imageUrl(item.product?.images[0])}
+                  src={buildImageUrl(item.product?.images[0])}
                   alt={item.product.title}
                   className="w-24 h-24 object-cover rounded-lg shadow-md border border-green-200"
                 />

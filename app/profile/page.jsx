@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Orders from "@/components/profile/Orders";
-import AccountDetails from "@/components/profile/AccountDetails";
+import Orders from "@/Components/profile/Orders";
+import AccountDetails from "@/Components/profile/AccountDetails";
 import { userProfileHook } from "@/Hooks/UserProfileHook";
-import Sidebar from "@/components/profile/Sidebar";
-import OrderPopupModal from "@/components/profile/OrderPopupModal";
+import Sidebar from "@/Components/profile/Sidebar";
+import OrderPopupModal from "@/Components/profile/OrderPopupModal";
 import NewAddress from "@/Components/Address/NewAddress";
 import Modal from "@/Utils/Modal";
 import CustomButton from "@/Utils/CustomButton";

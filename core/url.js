@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const url = "http://localhost:5000";
+// const url = "http://localhost:5000";
+const url = "https://backend.chaalabagundhi.com";
 
 export const API = axios.create({
   baseURL: url,

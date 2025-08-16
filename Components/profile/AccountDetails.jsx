@@ -1,6 +1,6 @@
 import { FormComponent } from "../Form/FormComponent";
-import CustomButton from "@/utils/CustomButton";
-import CustomInput from "@/utils/CustomInput";
+import CustomButton from "@/Utils/CustomButton";
+import CustomInput from "@/Utils/CustomInput";
 import React, { useState } from "react";
 import z from "zod";
 

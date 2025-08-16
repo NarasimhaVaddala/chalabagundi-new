@@ -1,5 +1,5 @@
-import CustomButton from "@/utils/CustomButton";
-import CustomInput from "@/utils/CustomInput";
+import CustomButton from "@/Utils/CustomButton";
+import CustomInput from "@/Utils/CustomInput";
 import { X } from "lucide-react";
 import React from "react";
 
