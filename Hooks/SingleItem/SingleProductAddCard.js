@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 export const useSingleProductAddCardHook = ({ singleItem }) => {
   const dispatch = useDispatch();
 
   const [quantity, setQuantity] = useState(1);
+  const [displayImg, setDisplayImg] = useState("");
 
   const parsePrice = (priceString) => {
     const number = priceString?.match(/\d+/g)?.join("") || "0";
@@ -18,10 +19,16 @@ export const useSingleProductAddCardHook = ({ singleItem }) => {
 
   const totalPrice = pricePerItem * quantity;
 
+  useEffect(() => {
+    setDisplayImg(singleItem?.image?.[0]);
+  }, [singleItem]);
+
   return {
     quantity,
     increment,
     decrement,
     totalPrice,
+    displayImg,
+    setDisplayImg,
   };
 };

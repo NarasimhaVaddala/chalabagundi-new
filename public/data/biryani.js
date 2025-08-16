@@ -29,7 +29,7 @@ export const biryani = {
       ],
     },
   ],
-  non_vegetarian: [
+  "non vegetarian": [
     {
       name: "Egg Biryani",
       main_ingredient: "Basmati rice, boiled eggs",

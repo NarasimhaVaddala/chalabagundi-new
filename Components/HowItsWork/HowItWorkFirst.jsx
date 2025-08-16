@@ -1,17 +1,19 @@
 import React from "react";
+import HowItsWorkLink from "./HowItsWorkLink";
+import TestimonialCarousel from "./TestimonialCarousel";
 
 const HowItWorkFirst = () => {
   return (
     <div className="w-full flex flex-col gap-6">
-      <div className="w-full flex justify-between items-center">
-        <div className="w-[45%] ">
+      <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center">
+        <div className="w-full  md:w-[45%] ">
           <img
             src="https://htmldemo.net/mixy/mixy/assets/images/banners/img_banner1_mixy3.webp"
             alt=""
             className="w-[86%]"
           />
         </div>
-        <div className="w-[50%] flex flex-col gap-5 justify-center items-center">
+        <div className="w-full md:w-[50%] flex flex-col gap-5 justify-center items-center">
           <h2 className="text-base font-semibold text-[#4b9b57]">
             How It Works
           </h2>
@@ -52,6 +54,9 @@ const HowItWorkFirst = () => {
           </div>
         </div>
       </div>
+      {/* link */}
+      <HowItsWorkLink />
+      {/* <TestimonialCarousel /> */}
     </div>
   );
 };

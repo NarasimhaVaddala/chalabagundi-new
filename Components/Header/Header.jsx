@@ -20,7 +20,6 @@ export const Header = () => {
   return (
     <div className="w-full flex flex-col">
       <HeaderTop />
-      {/* <<<<<<< HEAD */}
       <MainHeader setOpen={handleOpen} />
       <div className="sticky top-0 z-40 shadow-md">
         <HeaderLast />
@@ -36,10 +35,6 @@ export const Header = () => {
           signUp={signUp}
         />
       )}
-      {/* =======
-      <MainHeader />
-      <HeaderLast />
->>>>>>> 4190a267d28eae5d4bb3919f1565fd931923d432 */}
     </div>
   );
 };

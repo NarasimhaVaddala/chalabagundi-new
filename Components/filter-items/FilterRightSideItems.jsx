@@ -51,7 +51,7 @@ const FilterRightSideItems = ({
     <div className="w-full md:w-[calc(100%-200px)]">
       {categoryItems.length > 0 ? (
         <>
-          <div className="w-full flex flex-wrap  justify-center items-center gap-4 md:gap-0">
+          <div className="w-full flex flex-wrap  justify-center md:justify-start items-center gap-4 md:gap-0">
             {paginatedItems?.map((item) => (
               <ItemCard
                 key={item.name}

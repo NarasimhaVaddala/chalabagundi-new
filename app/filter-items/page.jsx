@@ -19,10 +19,17 @@ const Page = () => {
     setPriceRange,
     priceRange,
   } = useFilterCardHook();
+  console.log("categoryItems", categoryItems);
 
   return (
     <div className="w-full flex flex-col gap-4">
-      <FilterItemFirstCard />
+      <FilterItemFirstCard
+        name={
+          categoryItems?.[0]?.category?.slice(0, 1)?.toUpperCase() +
+          categoryItems?.[0]?.category?.slice(1)
+        }
+        image={categoryItems?.[0]?.image?.[0]}
+      />
       <div className="w-full flex flex-col gap-10 px-[clamp(1rem,4vw,4rem)] py-2 mt-7">
         <FilterWrapper
           subCategoryTypes={subCategoryTypes}

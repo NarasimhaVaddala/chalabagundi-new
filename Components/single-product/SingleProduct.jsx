@@ -12,8 +12,14 @@ import { addToWishlist, removeFromWishlist } from "@/Store/slice/wishlistSlice";
 const SingleProduct = ({ singleItem, category, subcategory }) => {
   const dispatch = useDispatch();
 
-  const { quantity, increment, decrement, totalPrice } =
-    useSingleProductAddCardHook({ singleItem, category, subcategory });
+  const {
+    quantity,
+    increment,
+    decrement,
+    totalPrice,
+    displayImg,
+    setDisplayImg,
+  } = useSingleProductAddCardHook({ singleItem, category, subcategory });
 
   const wishlistItems = useSelector((state) => state.wishlist.items);
   const cartItems = useSelector((state) => state.cart.items);
@@ -54,7 +60,7 @@ const SingleProduct = ({ singleItem, category, subcategory }) => {
   return (
     <div className="w-full flex flex-col gap-7">
       <div className="w-full flex flex-col md:flex-row justify-between gap-6 items-start">
-        <SingleProductLeftImge image={singleItem?.image?.[0]} />
+        <SingleProductLeftImge image={displayImg ?? singleItem?.image?.[0]} />
         <div className="w-full md:w-[50%] flex flex-col gap-3">
           <h2 className="font-semibold text-2xl text-black">
             {singleItem?.name}
@@ -81,7 +87,7 @@ const SingleProduct = ({ singleItem, category, subcategory }) => {
             <div className="flex items-center gap-4">
               <button
                 onClick={decrement}
-                className="w-[50px] h-[50px] rounded-full flex justify-center items-center bg-gray-100 text-lg font-semibold"
+                className="cursor-pointer w-[50px] h-[50px] rounded-full flex justify-center items-center bg-gray-100 text-lg font-semibold"
               >
                 -
               </button>
@@ -90,7 +96,7 @@ const SingleProduct = ({ singleItem, category, subcategory }) => {
               </span>
               <button
                 onClick={increment}
-                className="w-[50px] h-[50px] rounded-full flex justify-center items-center bg-gray-100 text-lg font-semibold"
+                className="cursor-pointer w-[50px] h-[50px] rounded-full flex justify-center items-center bg-gray-100 text-lg font-semibold"
               >
                 +
               </button>
@@ -122,8 +128,9 @@ const SingleProduct = ({ singleItem, category, subcategory }) => {
           </span>
 
           <div className="w-full flex flex-wrap items-center gap-1.5">
-            {singleItem?.image?.slice(1, 5)?.map((img, index) => (
+            {singleItem?.image?.slice(0, 4)?.map((img, index) => (
               <span
+                onClick={() => setDisplayImg(img)}
                 key={index}
                 className="cursor-pointer w-[120px] h-[150px] border border-gray-200"
               >

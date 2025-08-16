@@ -1,5 +1,5 @@
 "use client";
-import { Heart, User, ShoppingCart } from "lucide-react";
+import { Heart, User, ShoppingCart, Search } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -26,13 +26,7 @@ export const MainHeader = ({ setOpen }) => {
         </Link>
 
         <div className="hidden md:flex w-full md:w-[400px] lg:w-[600px] bg-[#f2f3f5] px-6 justify-between items-center h-[50px] rounded-3xl">
-          {/* <input
-            type="text"
-            className="w-[95%] h-full border-none outline-none bg-transparent"
-            placeholder="Search Product...!"
-          /> */}
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-          <Search color="gray" size={18} />
         </div>
 
         {/* Icons */}
@@ -71,11 +65,7 @@ export const MainHeader = ({ setOpen }) => {
             onClick={() => setShowMobileSearch((prev) => !prev)}
             className="md:hidden w-[46px] h-[46px] border border-gray-300 rounded-full flex justify-center items-center cursor-pointer"
           >
-            <SearchBar
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              className="h-full"
-            />
+            <Search />
           </span>
         </div>
       </div>

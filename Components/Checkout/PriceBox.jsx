@@ -18,7 +18,7 @@ export default function PriceBox({
         </h2>
         <div className="flex justify-between text-gray-700 mb-2">
           <span>Items ({itemsCount})</span>
-          <span>₹ {totalPrice.toFixed(2)}</span>
+          <span>₹ {totalPrice?.toFixed(2)}</span>
         </div>
         <div className="flex justify-between text-gray-700 mb-4">
           <span>Shipping</span>
@@ -27,7 +27,7 @@ export default function PriceBox({
         <hr className="my-4" />
         <div className="flex justify-between text-lg font-semibold text-gray-900 mb-6">
           <span>Total</span>
-          <span>₹ {totalPrice.toFixed(2)}</span>
+          <span>₹ {totalPrice?.toFixed(2)}</span>
         </div>
 
         <h2 className="text-lg font-semibold text-gray-800 my-4">
@@ -48,7 +48,7 @@ export default function PriceBox({
           />
         </div>
 
-        {addresses.length > 0 && (
+        {addresses?.length > 0 && (
           <CustomButton text="Proceed to Payment" onClick={handleCheckOut} />
         )}
       </div>
