@@ -1,3 +1,4 @@
+"use client";
 import { allProductItems } from "@/public/data/items.data";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
