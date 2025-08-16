@@ -98,7 +98,7 @@ export default function NewlyArrivedLayout({
 
         {/* Columns 3-5: Display next 2–7 items */}
         {[...Array(3)].map((_, colIdx) => (
-          <div key={colIdx} className="flex flex-col">
+          <div key={colIdx} className="flex flex-col space-y-0">
             {displayedItems
               .slice(colIdx * 2, colIdx * 2 + 2) // 2 items per column
               .map((item, idx) => (

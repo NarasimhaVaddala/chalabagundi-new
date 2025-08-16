@@ -26,13 +26,13 @@ const page = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <AddressList
-            addresses={profile?.address}
+            addresses={profile?.address ?? []}
             selectedAddress={selectedAddress}
             setSelectedAddress={setSelectedAddress}
           />
 
           <PriceBox
-            addresses={profile.address}
+            addresses={profile?.address}
             totalPrice={totalPrice}
             itemsCount={cartItems?.length}
             paymentMethod={paymentMethod}

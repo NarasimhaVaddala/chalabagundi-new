@@ -8,8 +8,6 @@ import { allProductItems } from "@/public/data/items.data";
 import Image from "next/image";
 
 export default function Home() {
-  console.log("allProductItems", allProductItems);
-
   return (
     <div className="w-full flex flex-col gap-4">
       <FoodSlider />

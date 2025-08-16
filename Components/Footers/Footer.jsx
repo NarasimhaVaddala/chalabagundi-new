@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
@@ -36,19 +37,38 @@ export default function Footer() {
           <h3 className="text-sm font-bold text-gray-800 mb-3">INFORMATION</h3>
           <ul className="space-y-2 text-gray-600 text-sm">
             <li>
-              <a href="#">Contact us</a>
+              <Link
+                href="/contact_us"
+                className="hover:underline cursor-pointer"
+              >
+                Contact Us
+              </Link>
             </li>
             <li>
-              <a href="#">About us</a>
+              <Link href="/about_us" className="hover:underline cursor-pointer">
+                About us
+              </Link>
             </li>
             <li>
-              <a href="#">Privacy Policy</a>
+              <Link
+                href="/privacy_policy"
+                className="hover:underline cursor-pointer"
+              >
+                Privacy Policy
+              </Link>
             </li>
             <li>
-              <a href="#">Wishlist</a>
+              <Link href="/wishlist" className="hover:underline cursor-pointer">
+                Wishlist
+              </Link>
             </li>
             <li>
-              <a href="#">Checkout</a>
+              <Link
+                href="/checkoutpage"
+                className="hover:underline cursor-pointer"
+              >
+                Checkout
+              </Link>
             </li>
           </ul>
         </div>
@@ -58,19 +78,22 @@ export default function Footer() {
           <h3 className="text-sm font-bold text-gray-800 mb-3">MY ACCOUNT</h3>
           <ul className="space-y-2 text-gray-600 text-sm">
             <li>
-              <a href="#">Orders</a>
+              <Link href="/profile" className="hover:underline cursor-pointer">
+                Orders
+              </Link>
             </li>
-            <li>
+            {/* <li>
               <a href="#">Downloads</a>
+            </li> */}
+            <li>
+              <Link href="/profile" className="hover:underline cursor-pointer">
+                Addresses
+              </Link>
             </li>
             <li>
-              <a href="#">Addresses</a>
-            </li>
-            <li>
-              <a href="#">Account details</a>
-            </li>
-            <li>
-              <a href="#">Lost password</a>
+              <Link href="/profile" className="hover:underline cursor-pointer">
+                Account details
+              </Link>
             </li>
           </ul>
         </div>

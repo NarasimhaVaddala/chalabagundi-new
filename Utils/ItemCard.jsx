@@ -13,7 +13,7 @@ export const ItemCard = ({
   isInWishlist = false,
 }) => {
   return (
-    <div className="group min-w-[230px] max-w-[230px] h-[330px] border border-gray-300 hover:rounded-sm overflow-hidden shadow-sm flex flex-col gap-2 hover:border-gray-400 transition-all duration-300 relative p-1">
+    <div className="group min-w-[230px] max-w-[230px] h-[330px] border border-gray-200 hover:rounded-sm overflow-hidden flex flex-col gap-2 hover:border-gray-400 transition-all duration-300 relative p-1">
       <div className="h-1/2 w-full overflow-hidden">
         <img src={image} alt={name} className="w-full h-full object-cover" />
       </div>

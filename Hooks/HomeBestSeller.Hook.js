@@ -36,25 +36,25 @@ export const useHomeBestSellerHook = () => {
   useEffect(() => {
     const tempItems = [];
     setIsLoading(false);
-    // allProductItems.forEach((categoryObj) => {
-    //   Object.entries(categoryObj).forEach(([categoryKey, subCategories]) => {
-    //     Object.entries(subCategories).forEach(([subCatKey, itemArray]) => {
-    //       const pickedItems = pickRandomItems(itemArray, 6);
+    allProductItems.forEach((categoryObj) => {
+      Object.entries(categoryObj).forEach(([categoryKey, subCategories]) => {
+        Object.entries(subCategories).forEach(([subCatKey, itemArray]) => {
+          const pickedItems = pickRandomItems(itemArray, 6);
 
-    //       pickedItems.forEach((item) => {
-    //         tempItems.push({
-    //           ...item,
-    //           _category: categoryKey,
-    //           _subcategory: subCatKey,
-    //         });
-    //       });
-    //     });
-    //   });
-    // });
+          pickedItems.forEach((item) => {
+            tempItems.push({
+              ...item,
+              _category: categoryKey,
+              _subcategory: subCatKey,
+            });
+          });
+        });
+      });
+    });
 
-    // const shuffledAllItems = shuffleArray(tempItems);
+    const shuffledAllItems = shuffleArray(tempItems);
     setIsLoading(false);
-    setItems(allProductItems);
+    setItems(shuffledAllItems);
   }, []);
 
   const handleWishlistAdded = (category, subcategory, item) => {
@@ -85,17 +85,17 @@ export const useHomeBestSellerHook = () => {
   };
 };
 
-// export function shuffleArray(array) {
-//   const arr = [...array];
-//   for (let i = arr.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [arr[i], arr[j]] = [arr[j], arr[i]];
-//   }
-//   return arr;
-// }
+export function shuffleArray(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
 
-// export function pickRandomItems(array, n) {
-//   if (array.length <= n) return shuffleArray(array);
-//   const shuffled = shuffleArray(array);
-//   return shuffled.slice(0, n);
-// }
+export function pickRandomItems(array, n) {
+  if (array.length <= n) return shuffleArray(array);
+  const shuffled = shuffleArray(array);
+  return shuffled.slice(0, n);
+}

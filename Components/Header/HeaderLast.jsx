@@ -12,37 +12,67 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+const categories = [
+  {
+    name: "Tiffins",
+    sub: [
+      { label: "All", icon: Utensils, value: "all" },
+      { label: "Idly", icon: Utensils, value: "Idly" },
+      { label: "Dosa", icon: Coffee, value: "Dosa" },
+      { label: "Aapalu", icon: Apple, value: "Aapalu" },
+      { label: "Pasarattu", icon: Apple, value: "Pasarattu" },
+    ],
+  },
+  {
+    name: "Biryani",
+    sub: [
+      { label: "All", icon: Utensils, value: "all" },
+      { label: "Veg Biryani", icon: Drumstick, value: "vegetarian" },
+      { label: "Non Veg Biryani", icon: Fish, value: "non vegetarian" },
+    ],
+  },
+  {
+    name: "Pickle",
+    sub: [
+      { label: "All", icon: Utensils, value: "all" },
+      { label: "Veg Pickles", icon: Apple, value: "veg" },
+      { label: "Non Veg Pickles", icon: Apple, value: "non veg" },
+    ],
+  },
+  {
+    name: "Cakes",
+    sub: [
+      { label: "All", icon: Utensils, value: "all" },
+      { label: "Normal Cakes", icon: Apple, value: "Normal Cakes" },
+      { label: "Cool Cakes", icon: Apple, value: "Cool Cakes" },
+      { label: "Cheesecakes", icon: Apple, value: "Cheesecakes" },
+    ],
+  },
+  {
+    name: "Meals",
+    sub: [
+      { label: "All", icon: Utensils, value: "all" },
+      { label: "Veg Meals", icon: Apple, value: "Veg Meals" },
+      { label: "Non Veg Meals", icon: Apple, value: "Non Veg Meals" },
+    ],
+  },
+];
 
 export const HeaderLast = () => {
   const [activeCategory, setActiveCategory] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const categories = [
-    {
-      name: "Tiffins",
-      sub: [
-        { label: "Sambar Idly", icon: Utensils },
-        { label: "Dosa", icon: Coffee },
-        { label: "Poori", icon: Apple },
-      ],
-    },
-    {
-      name: "Biryanis",
-      sub: [
-        { label: "Chicken Biryani", icon: Drumstick },
-        { label: "Mutton Biryani", icon: Fish },
-        { label: "Veg Biryani", icon: Apple },
-      ],
-    },
-    {
-      name: "Pickles",
-      sub: [
-        { label: "Mango Pickle", icon: Apple },
-        { label: "Lemon Pickle", icon: Apple },
-        { label: "Gongura Pickle", icon: Apple },
-      ],
-    },
-  ];
+  const router = useRouter();
+
+  const handleShopClick = (category, subcat) => {
+    router.push(
+      `/filter-items?category=${encodeURIComponent(
+        category
+      )}&subcategory=${encodeURIComponent(subcat)}`
+    );
+  };
 
   return (
     <header className="w-full bg-[#184d46] text-white">
@@ -63,41 +93,44 @@ export const HeaderLast = () => {
         >
           <div className="flex items-center gap-2">
             <Menu color="#fff" />
-            <span className="font-semibold text-base">Categories</span>
+            <span className="font-semibold text-base text-white">
+              Categories
+            </span>
           </div>
           <ChevronDown color="#fff" />
 
-          {/* Dropdown */}
+          {/* Main Dropdown */}
           <div className="absolute left-0 top-full mt-2 w-56 bg-white rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-40">
-            {categories.map((cat) => (
+            {categories?.map((cat) => (
               <div
                 key={cat.name}
-                className="text-black flex justify-between items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                className="relative text-black flex justify-between items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
                 onMouseEnter={() => setActiveCategory(cat.name)}
+                onMouseLeave={() => setActiveCategory(null)}
               >
                 {cat.name}
                 <ChevronRight size={16} />
+
+                {/* Sub Dropdown aligned to hovered item */}
+                {activeCategory === cat.name && (
+                  <div className="absolute left-full top-0 w-56 bg-white rounded shadow-lg transition-all duration-300 z-50">
+                    {cat.sub?.map(({ label, icon: Icon, value }) => (
+                      <div
+                        key={label}
+                        onClick={() =>
+                          handleShopClick(cat.name.toLowerCase(), value)
+                        }
+                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                      >
+                        <Icon size={16} className="text-black" />
+                        <span className="text-black">{label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
-          {activeCategory && (
-            <div
-              className="absolute left-[14rem] top-full mt-2 w-56 bg-white rounded shadow-lg transition-all duration-300 z-50"
-              onMouseLeave={() => setActiveCategory(null)}
-            >
-              {categories
-                .find((c) => c.name === activeCategory)
-                ?.sub.map(({ label, icon: Icon }) => (
-                  <div
-                    key={label}
-                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  >
-                    <Icon size={16} className="text-black" />
-                    <span className="text-black">{label}</span>
-                  </div>
-                ))}
-            </div>
-          )}
         </div>
 
         {/* Navigation Links - visible on md+ */}
@@ -145,7 +178,7 @@ export const HeaderLast = () => {
               <Link
                 href={{
                   pathname: "/products",
-                  query: { category: "bakery" },
+                  query: { category: "cakes" },
                 }}
                 className="block px-4 py-2 hover:bg-gray-100 cursor-pointer"
               >
@@ -162,11 +195,14 @@ export const HeaderLast = () => {
               </Link>
             </div>
           </div>
-          <Link href="/products" className="hover:underline cursor-pointer">
-            Products
+          <Link href="/about_us" className="hover:underline cursor-pointer">
+            About Us
           </Link>
-          <Link href="/blogs" className="hover:underline cursor-pointer">
-            Blogs
+          <Link href="/contact_us" className="hover:underline cursor-pointer">
+            Contact Us
+          </Link>
+          <Link href="/how-it-works" className="hover:underline cursor-pointer">
+            How Its work
           </Link>
         </nav>
 
@@ -200,12 +236,12 @@ export const HeaderLast = () => {
                   />
                 </summary>
                 <div className="mt-2 pl-4 flex flex-col gap-2 text-gray-100">
-                  {cat.sub.map(({ label, icon: Icon }) => (
+                  {cat.sub.map(({ label, icon: Icon, value }) => (
                     <Link
                       key={label}
-                      href={`/${cat.name.toLowerCase()}/${label
-                        ?.toLowerCase()
-                        ?.replace(/\s+/g, "-")}`}
+                      href={`/filter-items?category=${encodeURIComponent(
+                        cat.name.toLowerCase()
+                      )}&subcategory=${encodeURIComponent(value)}`}
                       className="flex items-center gap-2 hover:text-white"
                       onClick={() => setMenuOpen(false)}
                     >
@@ -229,28 +265,40 @@ export const HeaderLast = () => {
                 </summary>
                 <div className="mt-2 pl-4 flex flex-col gap-2 text-gray-100">
                   <Link
-                    href="/biryani"
+                    href={{
+                      pathname: "/products",
+                      query: { category: "biryani" },
+                    }}
                     onClick={() => setMenuOpen(false)}
                     className="hover:text-white"
                   >
                     Biryanis
                   </Link>
                   <Link
-                    href="/tiffins"
+                    href={{
+                      pathname: "/products",
+                      query: { category: "tiffins" },
+                    }}
                     onClick={() => setMenuOpen(false)}
                     className="hover:text-white"
                   >
                     Tiffins
                   </Link>
                   <Link
-                    href="/pickles"
+                    href={{
+                      pathname: "/products",
+                      query: { category: "pickle" },
+                    }}
                     onClick={() => setMenuOpen(false)}
                     className="hover:text-white"
                   >
                     Pickles
                   </Link>
                   <Link
-                    href="/meals"
+                    href={{
+                      pathname: "/products",
+                      query: { category: "meals" },
+                    }}
                     onClick={() => setMenuOpen(false)}
                     className="hover:text-white"
                   >
@@ -258,14 +306,20 @@ export const HeaderLast = () => {
                   </Link>
 
                   <Link
-                    href="/cakes"
+                    href={{
+                      pathname: "/products",
+                      query: { category: "cakes" },
+                    }}
                     onClick={() => setMenuOpen(false)}
                     className="hover:text-white"
                   >
                     Bakery
                   </Link>
                   <Link
-                    href="/cakes"
+                    href={{
+                      pathname: "/products",
+                      query: { category: "snacks" },
+                    }}
                     onClick={() => setMenuOpen(false)}
                     className="hover:text-white"
                   >
@@ -275,18 +329,18 @@ export const HeaderLast = () => {
               </details>
 
               <Link
-                href="/products"
+                href="/about_us"
                 className="hover:underline"
                 onClick={() => setMenuOpen(false)}
               >
-                Products
+                About Us
               </Link>
               <Link
-                href="/blogs"
+                href="/contact_us"
                 className="hover:underline"
                 onClick={() => setMenuOpen(false)}
               >
-                Blogs
+                Contact Us
               </Link>
             </nav>
           </div>
