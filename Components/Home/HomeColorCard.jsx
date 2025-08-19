@@ -19,14 +19,14 @@ export const HomeColorCard = () => {
       title: "Pickle",
       description: "Authentic Indian pickles with the taste of tradition.",
       bg: "bg-gradient-to-r from-green-100 to-green-200",
-      img: "/homes/home-pickel.jpg",
+      img: "/bg-removes/picke-bg-remove.png",
       category: "pickle",
     },
     {
       title: "Tiffins",
       description: "Hot and fresh South Indian breakfasts every morning.",
       bg: "bg-gradient-to-r from-pink-100 to-pink-200",
-      img: "https://thumbs.dreamstime.com/b/samosa-tiffins-white-background-isolated-highly-realistic-detailed-design-blurred-extruded-elements-photo-284108881.jpg",
+      img: "/bg-removes/samosa.png",
       category: "tiffins",
     },
   ];

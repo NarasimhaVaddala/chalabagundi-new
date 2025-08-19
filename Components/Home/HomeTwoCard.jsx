@@ -1,24 +1,6 @@
 import { ShopBtn } from "@/Utils/ShopBtn";
 
 export const HomeTwoCard = () => {
-  // const cards = [
-  //   {
-  //     title: "Spicy Chicken Biryani",
-  //     description:
-  //       "Rich, flavorful Hyderabadi chicken biryani made with secret spices.",
-  //     bg: "bg-gradient-to-r from-orange-100 to-orange-200",
-  //     img: "/biryani-transparent.png",
-  //     width: "w-full md:w-[70%]",
-  //   },
-  //   {
-  //     title: "Sweet Lassi",
-  //     description: "Cool, creamy, and refreshing lassi to balance the spice.",
-  //     bg: "bg-gradient-to-r from-blue-100 to-blue-200",
-  //     img: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Lassi_glass.jpg",
-  //     width: "w-full md:w-[30%]",
-  //   },
-  // ];
-
   const cards = [
     {
       title: "Chocolate Fudge Cake",

@@ -32,7 +32,7 @@ export default function TiffinGrid({ items = [] }) {
           return (
             <div
               key={idx}
-              className="w-1/4 h-[140px] flex items-center justify-between p-4 border border-gray-300 bg-white hover:border-gray-700 transition-colors cursor-pointer"
+              className="w-full md:w-1/4 h-[140px] flex items-center justify-between p-4 border border-gray-300 bg-white hover:border-gray-700 transition-colors cursor-pointer"
             >
               <h3 className="text-base font-semibold text-gray-800">{type}</h3>
 

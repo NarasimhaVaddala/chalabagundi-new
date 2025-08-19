@@ -114,7 +114,7 @@ export const PopularCategories = () => {
                 <img
                   src={subCat.img}
                   alt={subCat.name}
-                  className="w-20 h-20 object-cover absolute right-3 bottom-5"
+                  className="w-10 md:w-20 h-10 md:h-20 object-cover absolute right-3 bottom-5"
                 />
               </div>
             ))}

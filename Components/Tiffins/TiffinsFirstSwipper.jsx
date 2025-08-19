@@ -76,8 +76,8 @@ export default function TiffinsFirstSwipper({ categoryItems, category }) {
                   priority
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40 flex flex-col justify-center px-20 sm:px-16">
-                  <h2 className="text-white font-bold text-2xl sm:text-4xl md:text-5xl leading-tight">
+                <div className="absolute inset-0 bg-black/40 flex flex-col justify-center px-10 md:px-18">
+                  <h2 className="text-white font-bold text-xl  md:text-5xl leading-tight">
                     {slide.title}
                   </h2>
                   <p className="text-white/90 text-sm sm:text-lg mt-2 italic">

@@ -11,8 +11,8 @@ const TitleWithArrow = ({
   return (
     <div className="w-full flex justify-between items-center">
       <div className="flex flex-col">
-        <h2 className="text-[20px] font-semibold">{title}</h2>
-        <p className="text-base text-gray-700">{description}</p>
+        <h2 className="text-[18px] md:text-[20px] font-semibold">{title}</h2>
+        <p className="text-[12px] md:text-base text-gray-700">{description}</p>
       </div>
       {isDisplayArrow && (
         <div className="flex gap-2">

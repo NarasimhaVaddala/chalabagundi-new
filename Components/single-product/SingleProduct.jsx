@@ -35,9 +35,7 @@ const SingleProduct = ({ singleItem, category, subcategory }) => {
   // Toggle Cart
   const handleToggleCart = () => {
     if (isInCart) {
-      dispatch(
-        removeFromCart({ name: singleItem.name, category: singleItem.category })
-      );
+      dispatch(removeFromCart({ name: singleItem.name, category }));
     } else {
       dispatch(addToCart({ ...singleItem, category, subcategory, quantity }));
     }
@@ -49,7 +47,7 @@ const SingleProduct = ({ singleItem, category, subcategory }) => {
       dispatch(
         removeFromWishlist({
           name: singleItem.name,
-          category: singleItem.category,
+          category,
         })
       );
     } else {
@@ -132,7 +130,7 @@ const SingleProduct = ({ singleItem, category, subcategory }) => {
               <span
                 onClick={() => setDisplayImg(img)}
                 key={index}
-                className="cursor-pointer w-[120px] h-[150px] border border-gray-200"
+                className="cursor-pointer w-[80px] md:w-[120px] h-20 md:h-[150px] border border-gray-200"
               >
                 <img
                   src={img}
