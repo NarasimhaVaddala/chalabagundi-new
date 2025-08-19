@@ -12,9 +12,9 @@ const CardItem = ({ item }) => {
   // console.log("item", item);
 
   return (
-    <div className="w-full h-[165px] md:h-[150px] flex items-start gap-5 shadow rounded-md overflow-hidden">
+    <div className="w-full h-[135px] md:h-[150px] flex items-start gap-2 md:gap-5 shadow rounded-md overflow-hidden">
       {/* Product Image */}
-      <span className="w-[150px] h-full shadow overflow-hidden flex items-center justify-center bg-white">
+      <span className="w-20 md:w-[150px] h-full shadow overflow-hidden flex items-center justify-center bg-white">
         <img
           src={item?.image?.[0]}
           alt={item?.name}
@@ -23,16 +23,18 @@ const CardItem = ({ item }) => {
       </span>
 
       {/* Product Info */}
-      <div className="flex flex-col justify-between gap-1 p-2 h-full w-[calc(100%-150px)]">
+      <div className="flex flex-col justify-center gap-1 md:gap-2.5 p-1 md:p-2 h-full w-[calc(100%-80px)] md:w-[calc(100%-150px)]">
         <div>
-          <h2 className="text-base font-semibold">{item?.name}</h2>
-          <span className="text-sm font-medium text-gray-800 line-clamp-3">
+          <h2 className="text-sm md:text-lg line-clamp-1 font-semibold">
+            {item?.name}
+          </h2>
+          <span className="text-[10px] md:text-base font-medium text-gray-800  line-clamp-2 md:line-clamp-3">
             {item?.description}
           </span>
         </div>
 
         <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-1">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <span
               className="w-[30px] h-[30px] rounded-full flex justify-center items-center bg-gray-100 text-lg font-semibold cursor-pointer select-none"
               onClick={() =>
@@ -71,7 +73,7 @@ const CardItem = ({ item }) => {
                 removeFromCart({ name: item.name, category: item.category })
               )
             }
-            className="bg-red-400 px-2 py-1 rounded-2xl cursor-pointer text-white"
+            className="bg-red-400 px-2 py-1 mt-1 md:mt-0 rounded-2xl cursor-pointer text-white"
           >
             Remove
           </button>

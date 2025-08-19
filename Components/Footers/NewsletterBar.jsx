@@ -24,9 +24,9 @@ export default function NewsletterBar() {
         <input
           type="email"
           placeholder="Your Email Address..."
-          className="flex-1 px-4 text-gray-700 outline-none text-sm"
+          className="flex-1 px-4 text-gray-700 outline-none text-sm w-[calc(100%-114px)]"
         />
-        <button className="bg-green-600 hover:bg-green-700 text-white px-6 text-sm font-medium rounded-2xl">
+        <button className="bg-green-600 hover:bg-green-700 text-white w-[110px] text-sm font-medium rounded-2xl">
           Subscribe!
         </button>
       </div>
@@ -37,7 +37,7 @@ export default function NewsletterBar() {
           href="https://wa.me/919014548747"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center text-sm text-gray-500 gap-1 hover:text-green-200 transition"
+          className="flex items-center text-sm text-gray-500 gap-3 hover:text-green-200 transition"
         >
           <div className="bg-green-500 p-2 rounded-full">
             <FaWhatsapp className="text-xl text-white" />

@@ -5,11 +5,11 @@ export default function Pagination({ pageCount, onPageChange }) {
   return (
     <ReactPaginate
       breakLabel="..."
-      nextLabel="Next ›"
+      nextLabel="›"
       onPageChange={(e) => onPageChange(e.selected + 1)}
-      pageRangeDisplayed={3}
+      pageRangeDisplayed={2}
       pageCount={pageCount}
-      previousLabel="‹ Prev"
+      previousLabel="‹"
       renderOnZeroPageCount={null}
       containerClassName="flex justify-center items-center gap-2 mt-6"
       pageClassName="px-3 py-1 border rounded-lg hover:bg-[#179958] hover:text-white transition"

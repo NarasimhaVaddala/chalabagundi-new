@@ -27,34 +27,36 @@ const WishlistItem = ({ wish }) => {
   };
 
   return (
-    <div className="flex gap-4 items-start w-full md:w-[500px] shadow rounded-md overflow-hidden">
-      <span className="w-[150px] h-[150px] shadow">
+    <div className="flex gap-2 md:gap-4 items-start w-full md:w-[500px] shadow rounded-md overflow-hidden">
+      <span className="w-20 md:w-[150px] h-full md:h-[150px] shadow">
         <img
           src={wish?.image?.[0]}
           alt={wish?.name}
           className="w-full h-full object-cover"
         />
       </span>
-      <div className="flex flex-col gap-1 p-2 w-[calc(100%-150px)]">
-        <h2 className="text-base font-semibold">{wish?.name}</h2>
+      <div className="flex flex-col gap-0 md:gap-1 p-1 md:p-2 w-[calc(100%-80px)] md:w-[calc(100%-150px)]">
+        <h2 className="text-sm md:text-base font-semibold line-clamp-1">
+          {wish?.name}
+        </h2>
         <div className="flex items-center gap-1">
           {[...Array(5)].map((_, i) => (
             <Star key={i} filled={i < wish.rating} />
           ))}
         </div>
         <h3 className="text-base font-semibold text-red-800">
-          ₹ {wish?.price} /-
+          {wish?.price} /-
         </h3>
-        <div className="w-full flex items-center gap-4">
+        <div className="w-full flex  justify-between items-center gap-2 md:gap-3">
           <button
             onClick={handleRemoveWishList}
-            className="text-sm font-normal text-red-800 cursor-pointer"
+            className="text-[12px] font-normal text-red-800 cursor-pointer"
           >
             Remove Wishlist
           </button>
           <button
             onClick={handleToggleCart}
-            className={`px-3 py-1.5 rounded-2xl text-white font-semibold cursor-pointer ${
+            className={`px-2 md:px-3 py-0.5 md:py-1.5 text-[12px] md:text-base rounded-2xl text-white font-semibold cursor-pointer ${
               isInCart ? "bg-red-500" : "bg-[#184d46]"
             }`}
           >

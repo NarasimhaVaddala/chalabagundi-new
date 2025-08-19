@@ -14,7 +14,7 @@ export default function LoginSignupBox({
 }) {
   return (
     <div className="fixed top-0 left-0 h-[100vh] w-[100vw] bg-[rgba(158,149,149,0.5)] flex items-center justify-center z-50">
-      <div className="p-5 text-black bg-white w-[50%] max-w-lg rounded-lg relative">
+      <div className="p-5 text-black bg-white w-[95%]  md:w-[50%] max-w-lg rounded-lg relative">
         <button
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
           onClick={closeFn}

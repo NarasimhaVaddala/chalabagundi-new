@@ -19,10 +19,10 @@ const SingleProductLeftImage = ({ image }) => {
   };
 
   return (
-    <div className="flex flex-col  w-[46%]">
+    <div className="flex flex-col  w-full  md:w-[46%]">
       {/* Main Image with Fixed Zoom */}
       <div
-        className="relative border border-gray-300 h-[520px] p-[50px] overflow-hidden rounded-md cursor-zoom-in"
+        className="relative border border-gray-300 h-[300px] md:h-[520px] p-5 md:p-[40px] overflow-hidden rounded-md cursor-zoom-in"
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setZoom(true)}
         onMouseLeave={() => {

@@ -10,7 +10,7 @@ const page = () => {
   return (
     <div className="w-full flex flex-col gap-10 px-[clamp(1rem,6vw,5rem)] py-2 mt-7">
       {wishlistItems.length > 0 ? (
-        <div className="w-full flex flex-wrap gap-8">
+        <div className="w-full flex flex-wrap gap-4 md:gap-8">
           {wishlistItems?.map((wish, index) => (
             <WishlistItem wish={wish} key={index} />
           ))}
