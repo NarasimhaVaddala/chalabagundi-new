@@ -1,5 +1,8 @@
+"use client";
 import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+import EmailSubscribe from "./EmailSubscribe";
+import { motion } from "framer-motion";
 
 export default function NewsletterBar() {
   return (
@@ -20,16 +23,7 @@ export default function NewsletterBar() {
       </div>
 
       {/* Middle Section - Email Input */}
-      <div className="flex w-full md:w-[40%] h-12 rounded-full overflow-hidden border border-gray-300 bg-white p-1.5">
-        <input
-          type="email"
-          placeholder="Your Email Address..."
-          className="flex-1 px-4 text-gray-700 outline-none text-sm w-[calc(100%-114px)]"
-        />
-        <button className="bg-green-600 hover:bg-green-700 text-white w-[110px] text-sm font-medium rounded-2xl">
-          Subscribe!
-        </button>
-      </div>
+      <EmailSubscribe />
 
       {/* Right Section - WhatsApp Button */}
       <div className="w-full md:w-[200px] flex items-center gap-3 bg-[#0E3C38] px-5 py-2.5 rounded-full cursor-pointer hover:bg-[#0b302d] transition">
@@ -39,9 +33,13 @@ export default function NewsletterBar() {
           rel="noopener noreferrer"
           className="flex items-center text-sm text-gray-500 gap-3 hover:text-green-200 transition"
         >
-          <div className="bg-green-500 p-2 rounded-full">
+          <motion.div
+            animate={{ x: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.2 }}
+            className="bg-green-500 p-2 rounded-full"
+          >
             <FaWhatsapp className="text-xl text-white" />
-          </div>
+          </motion.div>
           <div>
             <p className="text-[11px] text-gray-300 leading-tight">
               Call Us 24/7
