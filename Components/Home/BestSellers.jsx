@@ -1,12 +1,18 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 import { ItemCard } from "@/Utils/ItemCard";
-import { ChevronLeft, ChevronRight, Loader } from "lucide-react";
 import TitleWithArrow from "@/Utils/TitleWithArrow";
-import { allProductItems } from "@/public/data/items.data";
 import { useHomeBestSellerHook } from "@/Hooks/HomeBestSeller.Hook";
 import LoaderUi from "@/Utils/Loader";
-import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
+
+export const itemVariants = {
+  hidden: { opacity: 0, transform: "translateY(30px)" }, // transform only
+  show: (i) => ({
+    opacity: 1,
+    transform: "translateY(0px)",
+    transition: { delay: i * 0.1, type: "spring", stiffness: 80 },
+  }),
+};
 
 export const BestSellers = ({
   title = "Best Sellers",
@@ -24,7 +30,7 @@ export const BestSellers = ({
   } = useHomeBestSellerHook();
 
   return (
-    <div className="w-full flex flex-col gap-4 mt-3 relative">
+    <div className="w-full flex flex-col gap-4 mt-3">
       <TitleWithArrow
         title={title}
         description={description}
@@ -37,25 +43,33 @@ export const BestSellers = ({
       ) : (
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scrollbar-hide scroll-smooth border-y border-gray-200"
+          className="flex overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth border-y border-gray-200"
         >
           {items?.map((item, idx) => (
-            <ItemCard
+            <motion.div
               key={idx}
-              name={item.name}
-              previewItem={() =>
-                handleItemClick(item._category, item._subcategory, item)
-              }
-              toggleWishlist={() =>
-                handleWishlistAdded(item._category, item._subcategory, item)
-              }
-              image={item?.image?.[0]}
-              isAvailableDis={isAvailableDis}
-              rating={item?.rating}
-              price={item?.price}
-              description={item?.description}
-              isInWishlist={isItemInWishlist(item)}
-            />
+              custom={idx}
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.2 }}
+            >
+              <ItemCard
+                name={item.name}
+                previewItem={() =>
+                  handleItemClick(item._category, item._subcategory, item)
+                }
+                toggleWishlist={() =>
+                  handleWishlistAdded(item._category, item._subcategory, item)
+                }
+                image={item?.image?.[0]}
+                isAvailableDis={isAvailableDis}
+                rating={item?.rating}
+                price={item?.price}
+                description={item?.description}
+                isInWishlist={isItemInWishlist(item)}
+              />
+            </motion.div>
           ))}
         </div>
       )}

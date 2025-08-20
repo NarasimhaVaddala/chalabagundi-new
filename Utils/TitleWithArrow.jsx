@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import React from "react";
+import { motion } from "framer-motion";
 
 const TitleWithArrow = ({
   title,
@@ -16,18 +16,22 @@ const TitleWithArrow = ({
       </div>
       {isDisplayArrow && (
         <div className="flex gap-2">
-          <button
+          <motion.button
+            // animate={{ x: [0, -5, 0] }}
+            // transition={{ repeat: Infinity, duration: 1.2 }}
             onClick={onScrollLeft}
             className="p-2 rounded-full bg-gray-200 hover:bg-[#179958] cursor-pointer transition-colors duration-300"
           >
             <ChevronLeft size={20} />
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            animate={{ x: [0, 5, 0] }}
+            transition={{ repeat: Infinity, duration: 1.2 }}
             onClick={onScrollRight}
             className="p-2 rounded-full bg-gray-200 hover:bg-[#179958] cursor-pointer transition-colors duration-300"
           >
             <ChevronRight size={20} />
-          </button>
+          </motion.button>
         </div>
       )}
     </div>

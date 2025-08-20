@@ -19,9 +19,9 @@ export const tiffins = {
       price: "₹40",
       rating: 4,
       image: [
-        "/images/Sambar idly1.jpg",
-        "/images/Sambar idly2.jpg",
-        "/images/Sambar idly3.jpg",
+        "/tiffins/Sambar idly1.jpg",
+        "/tiffins/Sambar idly2.jpg",
+        "/tiffins/Sambar idly3.jpg",
       ],
     },
     {
@@ -195,9 +195,9 @@ export const tiffins = {
       price: "₹70",
       rating: 4,
       image: [
-        "/tiffins/onionravadosa1.jpg",
-        "/tiffins/onionravadosa2.jpg",
-        "/tiffins/onionravadosa3.jpg",
+        "/tiffins/Onion Dosa 1.jpeg",
+        "/tiffins/Onion Dosa 2.jpeg",
+        "/tiffins/Onion Dosa 3.jpeg",
       ],
     },
     {

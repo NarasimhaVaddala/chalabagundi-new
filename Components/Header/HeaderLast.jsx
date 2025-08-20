@@ -77,7 +77,6 @@ export const HeaderLast = () => {
   return (
     <header className="w-full bg-[#184d46] text-white">
       <div className="max-w-[1280px] mx-auto flex items-center gap-6 px-4 sm:px-6 md:px-10 py-2 relative">
-        {/* Hamburger button for mobile - hidden on md+ */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden p-2 rounded-md hover:bg-[#179958] transition z-50"
