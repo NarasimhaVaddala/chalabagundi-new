@@ -36,7 +36,6 @@ export const SearchBar = ({ searchTerm, setSearchTerm, className }) => {
       />
       <Search color="gray" size={18} />
 
-      {/* Dropdown */}
       {searchTerm && filteredProducts.length > 0 && (
         <ul className="absolute top-[60px] left-0 w-full bg-white border border-gray-200 rounded-md shadow-md max-h-60 overflow-y-auto z-50">
           {filteredProducts.map((product) => (

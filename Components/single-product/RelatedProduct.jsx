@@ -3,6 +3,8 @@ import { ItemCard } from "@/Utils/ItemCard";
 import TitleWithArrow from "@/Utils/TitleWithArrow";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
+import { motion } from "framer-motion";
+import { itemVariants } from "../Home/BestSellers";
 
 const RelatedProduct = ({ relatedProduct, subcategory, category }) => {
   const scrollRef = useRef(null);
@@ -39,17 +41,26 @@ const RelatedProduct = ({ relatedProduct, subcategory, category }) => {
         ref={scrollRef}
         className="flex overflow-x-auto scrollbar-hide scroll-smooth border-y border-gray-200"
       >
-        {relatedProduct?.map((item) => (
-          <ItemCard
-            key={item.name}
-            name={item.name}
-            isAvailableDis={false}
-            image={item?.image?.[0]}
-            rating={item?.rating}
-            price={item?.price}
-            description={item?.description}
-            previewItem={() => handleItemClick(category, subcategory, item)}
-          />
+        {relatedProduct?.map((item, idx) => (
+          <motion.div
+            key={idx}
+            custom={idx}
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
+          >
+            <ItemCard
+              key={item.name}
+              name={item.name}
+              isAvailableDis={false}
+              image={item?.image?.[0]}
+              rating={item?.rating}
+              price={item?.price}
+              description={item?.description}
+              previewItem={() => handleItemClick(category, subcategory, item)}
+            />
+          </motion.div>
         ))}
       </div>
     </div>

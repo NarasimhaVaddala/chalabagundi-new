@@ -32,15 +32,17 @@ const SingleProductLeftImage = ({ image }) => {
           }
         }}
       >
-        <img
-          ref={imgRef}
-          src={image ?? ""}
-          alt="Product"
-          className={`w-full h-full object-cover transition-transform duration-200 ${
-            zoom ? "scale-[2.5]" : "scale-100"
-          }`}
-          draggable={false}
-        />
+        {image && (
+          <img
+            ref={imgRef}
+            src={image ?? currentImage}
+            alt="Product"
+            className={`w-full h-full object-cover transition-transform duration-200 ${
+              zoom ? "scale-[2.5]" : "scale-100"
+            }`}
+            draggable={false}
+          />
+        )}
       </div>
     </div>
   );

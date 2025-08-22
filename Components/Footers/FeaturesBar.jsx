@@ -1,4 +1,7 @@
+"use client";
 import { Truck, BadgeDollarSign, Gift, Globe } from "lucide-react";
+
+import { motion } from "framer-motion";
 
 export default function FeaturesBar() {
   const features = [
@@ -35,7 +38,12 @@ export default function FeaturesBar() {
           <div
             className={`flex items-center justify-center w-12 h-12 rounded-full ${item.bg}`}
           >
-            {item.icon}
+            <motion.span
+              animate={{ x: [0, -8, 0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            >
+              {item.icon}
+            </motion.span>
           </div>
           <div>
             <h4 className="font-semibold text-gray-900 text-base">

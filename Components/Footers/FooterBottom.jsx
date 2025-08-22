@@ -8,7 +8,7 @@ export default function FooterBottom() {
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3">
         {/* Copyright Text */}
         <p className="text-sm text-gray-600 text-center md:text-left">
-          Copyright ©
+          Copyright ©{" "}
           <Link
             href="https://www.nuhvin.com"
             className="hover:underline cursor-pointer"
