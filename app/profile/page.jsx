@@ -9,6 +9,7 @@ import NewAddress from "@/Components/Address/NewAddress";
 import Modal from "@/Utils/Modal";
 import CustomButton from "@/Utils/CustomButton";
 import { AlertTriangle } from "lucide-react";
+import CartLayout from "@/Components/Checkout/CartLayout";
 
 const menuItems = ["Dashboard", "Orders", "Addresses", "Account Details"];
 
@@ -67,6 +68,8 @@ export default function page() {
         {active === "Account Details" && (
           <AccountDetails profile={profile} updateProfile={updateProfile} />
         )}
+
+        <CartLayout />
       </main>
 
       <Modal onClose={() => setOpenCancelModal(false)} isOpen={openCancelModal}>

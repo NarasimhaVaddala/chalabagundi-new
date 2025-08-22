@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import FilterItemFirstCard from "@/Components/filter-items/FilterItemFirstCard";
 import FilterWrapper from "@/Components/filter-items/FilterWrapper";
 import { useFilterCardHook } from "@/Hooks/filter-card/filterCard.hook";
+import CartLayout from "@/Components/Checkout/CartLayout";
 
 const FilterPageContent = () => {
   const {
@@ -49,6 +50,7 @@ const FilterPageContent = () => {
           priceRange={priceRange}
         />
       </div>
+      <CartLayout />
     </div>
   );
 };

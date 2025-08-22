@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaHeart, FaGlobe, FaAward, FaRocket } from "react-icons/fa";
+import CartLayout from "@/Components/Checkout/CartLayout";
 
 const Page = () => {
   const stats = [
@@ -90,9 +91,9 @@ const Page = () => {
           </motion.p>
           <motion.div variants={fadeUp} className="flex justify-center">
             <img
-              src="https://media-assets.swiggy.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/d9d752c0f8cee46c4f1a52befe4923be"
+              src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Grocery Store"
-              className="w-full h-[400px] md:h-[620px] rounded-lg shadow-lg"
+              className="w-full h-[400px] md:h-[620px] object-cover rounded-lg shadow-lg"
             />
           </motion.div>
         </motion.div>
@@ -154,57 +155,8 @@ const Page = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Meet Our Team */}
-        <div>
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Meet Our Team
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              {
-                name: "Marcosinacioluz",
-                role: "Designer",
-                img: "https://htmldemo.net/mixy/mixy/assets/images/teams/leader1-about2-1.jpg",
-              },
-              {
-                name: "Wingcitymedia",
-                role: "Photographer",
-                img: "https://htmldemo.net/mixy/mixy/assets/images/teams/leader2-about2-1.jpg",
-              },
-              {
-                name: "Tee3sports",
-                role: "Designer",
-                img: "https://htmldemo.net/mixy/mixy/assets/images/teams/leader3-about2-1.jpg",
-              },
-              {
-                name: "Aussiemines",
-                role: "C.E.O",
-                img: "https://htmldemo.net/mixy/mixy/assets/images/teams/leader4-about2-1.jpg",
-              },
-            ].map((member, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.8, delay: idx * 0.2 }}
-                className="relative overflow-hidden rounded-lg shadow-lg group"
-              >
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white px-6 py-3 text-center rounded shadow">
-                  <h3 className="font-bold text-lg">{member.name}</h3>
-                  <p className="text-gray-500">{member.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </div>
+      <CartLayout />
     </div>
   );
 };

@@ -1,7 +1,8 @@
 "use client";
 import React, { useRef, useState } from "react";
 
-const SingleProductLeftImage = ({ image }) => {
+import { motion } from "framer-motion";
+const SingleProductLeftImage = ({ image, setDisplayImg, singleItem }) => {
   const imgRef = useRef(null);
   const [zoom, setZoom] = useState(false);
 
@@ -17,9 +18,13 @@ const SingleProductLeftImage = ({ image }) => {
 
     imgRef.current.style.transformOrigin = `${x}% ${y}%`;
   };
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  };
 
   return (
-    <div className="flex flex-col  w-full  md:w-[46%]">
+    <div className="flex flex-col gap-2 w-full  md:w-[46%]">
       {/* Main Image with Fixed Zoom */}
       <div
         className="relative border border-gray-300 h-[300px] md:h-[520px] p-5 md:p-[40px] overflow-hidden rounded-md cursor-zoom-in"
@@ -44,6 +49,25 @@ const SingleProductLeftImage = ({ image }) => {
           />
         )}
       </div>
+
+      <motion.div
+        variants={item}
+        className="w-full flex flex-wrap items-center gap-1.5"
+      >
+        {singleItem?.image?.slice(0, 4)?.map((img, index) => (
+          <span
+            onClick={() => setDisplayImg(img)}
+            key={index}
+            className="cursor-pointer w-[80px] md:w-[120px] h-20 md:h-[150px] border border-gray-200"
+          >
+            <img
+              src={img}
+              className="w-full h-full"
+              alt={`${singleItem.name} image ${index + 2}`}
+            />
+          </span>
+        ))}
+      </motion.div>
     </div>
   );
 };

@@ -28,3 +28,28 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+/* FOR PAGINATION IN PRODUCTS PAGE */
+/* globals.css or inside <style jsx> if using styled-jsx */
+.swiper-pagination-right {
+  bottom: 10px !important;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.swiper-pagination-right .swiper-pagination-bullet {
+  background: white;
+  opacity: 0.6;
+  transition: opacity 0.3s, transform 0.3s;
+  width: 8px;
+  height: 8px;
+}
+
+.swiper-pagination-right .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
+  background: #ffcc00; /* Gold color to match your theme */
+}
+/* FOR PAGINATION IN PRODUCTS PAGE */

@@ -1,4 +1,5 @@
 "use client";
+import CartLayout from "@/Components/Checkout/CartLayout";
 import FilterItemFirstCard from "@/Components/filter-items/FilterItemFirstCard";
 import RelatedProduct from "@/Components/single-product/RelatedProduct";
 import SingleProduct from "@/Components/single-product/SingleProduct";
@@ -34,6 +35,8 @@ const page = () => {
           </>
         )}
       </div>
+
+      <CartLayout />
     </div>
   );
 };

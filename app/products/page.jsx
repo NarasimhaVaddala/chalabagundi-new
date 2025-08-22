@@ -7,13 +7,14 @@ import TiffinGrid from "@/Components/Tiffins/TiffinGrid";
 import TiffinsFirstSwipper from "@/Components/Tiffins/TiffinsFirstSwipper";
 import VegItems from "@/Components/Tiffins/VegItems";
 import { useProductHook } from "@/Hooks/Product/Product.Hook";
+import CartLayout from "@/Components/Checkout/CartLayout";
 
 const ProductsContent = () => {
   const { categoryItems, subCategories, category } = useProductHook();
   const subCategoryKeys = Object.keys(subCategories || {});
 
   return (
-    <div className="w-full flex flex-col gap-10 px-[clamp(1rem,6vw,5rem)] py-2 mt-7">
+    <div className="w-full flex flex-col gap-10 px-[clamp(1rem,6vw,5rem)] py-2">
       <TiffinsFirstSwipper categoryItems={categoryItems} category={category} />
       <TiffinGrid items={categoryItems} />
       <BestSellers
@@ -41,6 +42,7 @@ const ProductsContent = () => {
         subCategoryKeys={subCategoryKeys}
         category={category}
       />
+      <CartLayout />
     </div>
   );
 };

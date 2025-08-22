@@ -201,7 +201,7 @@ export const HeaderLast = () => {
             Contact Us
           </Link>
           <Link href="/how-it-works" className="hover:underline cursor-pointer">
-            How Its work
+            How It works
           </Link>
         </nav>
 

@@ -1,3 +1,4 @@
+import CartLayout from "@/Components/Checkout/CartLayout";
 import { BestSellers } from "@/Components/Home/BestSellers";
 import FoodSlider from "@/Components/Home/FoodSlider";
 import { HomeColorCard } from "@/Components/Home/HomeColorCard";
@@ -16,6 +17,7 @@ export default function Home() {
         <BestSellers />
         <HomeTwoCard />
         <PopularCategories />
+        <CartLayout />
       </div>
     </div>
   );

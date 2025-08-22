@@ -1,4 +1,5 @@
 "use client";
+import CartLayout from "@/Components/Checkout/CartLayout";
 import EmptyComponent from "@/Components/wishlist/EmptyComponent";
 import WishlistItem from "@/Components/wishlist/WishlistItem";
 import React from "react";
@@ -18,6 +19,8 @@ const page = () => {
       ) : (
         <EmptyComponent />
       )}
+
+      <CartLayout />
     </div>
   );
 };

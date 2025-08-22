@@ -14,7 +14,7 @@ export default function TiffinGrid({ items = [] }) {
 
   return (
     <div className="w-full">
-      <div className="flex flex-wrap w-full">
+      <div className="flex flex-wrap w-full gap-2">
         {uniqueTypeItems.map(({ type, image }, idx) => {
           const imgSrcRaw = Array.isArray(image) ? image[0] : image;
           let imgSrc = imgSrcRaw;
@@ -39,7 +39,7 @@ export default function TiffinGrid({ items = [] }) {
               <div className="w-[100px] h-[100px] rounded-full bg-[#f2e7e6] flex items-center justify-center overflow-hidden">
                 <Image
                   src={imgSrc}
-                  alt={type}
+                  alt={type || "No Image"}
                   width={80}
                   height={80}
                   className="rounded-full object-cover"

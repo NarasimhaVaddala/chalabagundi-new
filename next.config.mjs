@@ -34,6 +34,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "freshmealplan.com",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };

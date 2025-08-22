@@ -158,7 +158,7 @@ const RightProductDetails = ({
         {singleItem?.main_ingredient}
       </motion.span>
 
-      <motion.div
+      {/* <motion.div
         variants={item}
         className="w-full flex flex-wrap items-center gap-1.5"
       >
@@ -175,7 +175,7 @@ const RightProductDetails = ({
             />
           </span>
         ))}
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 };

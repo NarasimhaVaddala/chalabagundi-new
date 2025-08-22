@@ -19,7 +19,7 @@ export const Header = () => {
 
   return (
     <div className="w-full flex flex-col">
-      <HeaderTop />
+      {/* <HeaderTop /> */}
       <MainHeader setOpen={handleOpen} />
       <div className="sticky top-0 z-40 shadow-md">
         <HeaderLast />

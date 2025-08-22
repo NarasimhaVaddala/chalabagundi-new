@@ -18,7 +18,11 @@ const SingleProduct = ({ singleItem, category, subcategory }) => {
   return (
     <div className="w-full flex flex-col gap-7">
       <div className="w-full flex flex-col md:flex-row justify-between gap-6 items-start">
-        <SingleProductLeftImge image={displayImg ?? singleItem?.image?.[0]} />
+        <SingleProductLeftImge
+          setDisplayImg={setDisplayImg}
+          image={displayImg ?? singleItem?.image?.[0]}
+          singleItem={singleItem}
+        />
 
         <RightProductDetails
           category={category}

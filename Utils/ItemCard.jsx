@@ -1,5 +1,7 @@
 import { Heart, HeartOff, Eye } from "lucide-react";
 import { Star } from "./Starts";
+import CustomButton from "./CustomButton";
+import QuantityButtons from "./QuantityButtons";
 
 export const ItemCard = ({
   isAvailableDis = false,
@@ -13,7 +15,10 @@ export const ItemCard = ({
   isInWishlist = false,
 }) => {
   return (
-    <div className="group min-w-[230px] max-w-[230px] h-[330px] border border-gray-200 hover:rounded-sm overflow-hidden flex flex-col gap-2 hover:border-gray-400 transition-all duration-300 relative p-1">
+    <div
+      onClick={previewItem}
+      className="cursor-pointer group min-w-[230px] max-w-[230px] h-[330px] border border-gray-200 hover:rounded-sm overflow-hidden flex flex-col gap-2 hover:border-gray-400 transition-all duration-300 relative p-1"
+    >
       {/* Image */}
       <div className="h-1/2 w-full overflow-hidden">
         <img src={image} alt={name} className="w-full h-full object-cover" />
@@ -47,18 +52,15 @@ export const ItemCard = ({
         </span>
       </div>
 
-      {/* Content */}
       <div className="h-1/2 p-4 flex flex-col gap-2">
-        <div className="flex items-center gap-1">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} filled={i < rating} />
-          ))}
-        </div>
         <h3 className="text-base font-semibold text-gray-800">{name}</h3>
         <span className="text-sm text-gray-800 -mt-1.5 line-clamp-2">
           {description}
         </span>
         <p className="text-red-500 font-bold text-lg">{price}</p>
+
+        <CustomButton text="Add to Cart" />
+        <QuantityButtons />
 
         {isAvailableDis && (
           <div className="flex w-full gap-1.5">

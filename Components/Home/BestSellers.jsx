@@ -43,34 +43,38 @@ export const BestSellers = ({
       ) : (
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth border-y border-gray-200"
+          className="flex overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth border-y border-gray-200 gap-2"
         >
-          {items?.map((item, idx) => (
-            <motion.div
-              key={idx}
-              custom={idx}
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: false, amount: 0.2 }}
-            >
-              <ItemCard
-                name={item.name}
-                previewItem={() =>
-                  handleItemClick(item._category, item._subcategory, item)
-                }
-                toggleWishlist={() =>
-                  handleWishlistAdded(item._category, item._subcategory, item)
-                }
-                image={item?.image?.[0]}
-                isAvailableDis={isAvailableDis}
-                rating={item?.rating}
-                price={item?.price}
-                description={item?.description}
-                isInWishlist={isItemInWishlist(item)}
-              />
-            </motion.div>
-          ))}
+          {items?.map((item, idx) => {
+            console.log(item);
+
+            return (
+              <motion.div
+                key={idx}
+                custom={idx}
+                variants={itemVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.2 }}
+              >
+                <ItemCard
+                  name={item.name}
+                  previewItem={() =>
+                    handleItemClick(item._category, item._subcategory, item)
+                  }
+                  toggleWishlist={() =>
+                    handleWishlistAdded(item._category, item._subcategory, item)
+                  }
+                  image={item?.image?.[0]}
+                  isAvailableDis={isAvailableDis}
+                  rating={item?.rating}
+                  price={item?.price}
+                  description={item?.description}
+                  isInWishlist={isItemInWishlist(item)}
+                />
+              </motion.div>
+            );
+          })}
         </div>
       )}
     </div>
