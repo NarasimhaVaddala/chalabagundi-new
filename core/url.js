@@ -1,7 +1,12 @@
 import axios from "axios";
 
-// const url = "http://localhost:5000";
-const url = "https://backend.chaalabagundhi.com";
+let url;
+
+if (process.env.NODE_ENV === "development") {
+  url = "http://localhost:5000";
+} else {
+  url = "https://backend.chaalabagundhi.com";
+}
 
 export const API = axios.create({
   baseURL: url,
