@@ -20,7 +20,7 @@ export default function CartLayout() {
   //   );
 
   const navigateToCheckout = () => {
-    router.push("/checkoutpage");
+    router.push("/cart");
   };
 
   return (

@@ -1,55 +1,86 @@
 "use client";
+import AddressForm from "@/Components/Cart/AddressForm";
 import LoginSignupBox from "@/Components/Auth/LoginSignUpBox";
 import CardItem from "@/Components/card/CardItem";
-import AuthModal from "@/Components/card/Modal/AuthModal";
-import EmptyComponent from "@/Components/wishlist/EmptyComponent";
+import AdressBox from "@/Components/Cart/AdressBox";
+import PriceDetailsBox from "@/Components/Cart/PriceDetailsBox";
+import { useAddressHook } from "@/Hooks/cart/AddressHook";
 import { useCartHook } from "@/Hooks/cart/Cart.Hook";
-
 import React from "react";
+import AddressListBox from "@/Components/Cart/AddressListBox";
+import EmptyComponent from "@/Components/wishlist/EmptyComponent";
 
-const Page = () => {
+export default function CartPage() {
   const {
-    FormWrapper,
-    handleCheckOut,
-    errors,
-    register,
-    open,
-    setOpen,
-    otpSent,
-    signUp,
+    selectedAddress,
+    addressOpen,
+    setAddressOpen,
+    handleSubmit,
+    validation,
+    addressBoxOpen,
+    setAddressBoxOpen,
+    profile,
+    setSelectedAddress,
+  } = useAddressHook();
+
+  const {
     cartItems,
+    FormWrapper,
+    errors,
+    handleCheckOut,
+    open,
+    otpSent,
+    register,
+    setOpen,
+    signUp,
     totalPrice,
-  } = useCartHook();
+    paymentMethod,
+    setPaymentMethod,
+  } = useCartHook({ selectedAddress, setAddressOpen, setAddressBoxOpen });
+
+  if (!cartItems.length) {
+    return <EmptyComponent text="Cart" />;
+  }
 
   return (
-    <>
-      <div className="w-full flex flex-col gap-10 px-[clamp(1rem,6vw,5rem)] py-2 mt-7">
-        {cartItems.length === 0 ? (
-          <EmptyComponent text="Cart" />
+    <div className="flex flex-col lg:flex-row w-full gap-6 p-4">
+      <div className="w-full flex flex-col gap-4 lg:w-3/5 order-2 lg:order-1">
+        {addressOpen ? (
+          <>
+            <AddressForm
+              setAddressOpen={() => setAddressOpen(!addressOpen)}
+              submitFn={handleSubmit}
+              validation={validation}
+            />
+          </>
         ) : (
           <>
-            {cartItems.map((item) => (
-              <CardItem key={item.name} item={item} />
+            {profile && (
+              <AdressBox
+                selectedAddress={selectedAddress}
+                setAddressOpen={setAddressOpen}
+                addressOpen={addressOpen}
+                addressBoxOpen={addressBoxOpen}
+                setAddressBoxOpen={setAddressBoxOpen}
+              />
+            )}
+
+            {cartItems?.map((item, index) => (
+              <CardItem key={index} item={item} />
             ))}
-
-            <div className="w-full flex flex-col md:flex-row md:justify-between md:items-center gap-4 border-y border-gray-200 py-3">
-              <div className="flex justify-between items-center w-full md:w-auto">
-                <span className="text-base md:text-lg">Total Price</span>
-                <span className="text-2xl font-semibold text-[#184d47] ml-4">
-                  ₹ {totalPrice} /-
-                </span>
-              </div>
-
-              <button
-                onClick={handleCheckOut}
-                className="cursor-pointer w-full md:w-[150px] h-[45px] text-white text-lg font-semibold bg-[#184d47] rounded-md"
-              >
-                Check Out
-              </button>
-            </div>
           </>
         )}
       </div>
+
+      <div className="w-full lg:w-2/5 order-1 lg:order-2">
+        <PriceDetailsBox
+          price={totalPrice}
+          paymentMethod={paymentMethod}
+          setPaymentMethod={setPaymentMethod}
+          checkout={handleCheckOut}
+        />
+      </div>
+
       {open && (
         <LoginSignupBox
           FormWrapper={FormWrapper}
@@ -60,8 +91,16 @@ const Page = () => {
           signUp={signUp}
         />
       )}
-    </>
-  );
-};
 
-export default Page;
+      {addressBoxOpen && (
+        <AddressListBox
+          selectedAddress={selectedAddress}
+          setAddressBoxOpen={setAddressBoxOpen}
+          addressList={profile?.address}
+          setSelectedAddress={setSelectedAddress}
+          openAddressForm={() => setAddressOpen(!addressOpen)}
+        />
+      )}
+    </div>
+  );
+}

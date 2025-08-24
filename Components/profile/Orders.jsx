@@ -2,8 +2,7 @@ import React, { useState } from "react";
 
 const Orders = ({ orders, setSelectedOrder }) => {
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-semibold mb-4">Orders</h2>
+    <div className="">
       <div className="overflow-x-auto rounded border">
         <table className="min-w-full border-collapse">
           <thead className="bg-gray-100">

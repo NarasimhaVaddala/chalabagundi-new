@@ -9,6 +9,7 @@ import {
 import { SendOtp, SignUp, VerifyOtp } from "./AuthServices";
 import { useDispatch } from "react-redux";
 import { fetchUserProfile } from "@/Store/slice/ProfileSlice";
+import { showSuccessMessage } from "@/core/Toast";
 
 export const useAuthHook = () => {
   const [open, setOpen] = useState(false);
@@ -80,6 +81,8 @@ export const useAuthHook = () => {
           }
         }
       } catch (err) {
+        console.log(err, "FROM UNEXPECTED ERROR");
+
         setError("root", { message: "An unexpected error occurred." });
       }
     },

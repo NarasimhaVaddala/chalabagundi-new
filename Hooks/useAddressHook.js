@@ -17,6 +17,7 @@ export const useAddressHook = () => {
     housenumber: z.string().min(1, "House number is required"),
     street: z.string().min(1, "Street is required"),
     city: z.string().min(1, "City is required"),
+    landmark: z.string().optional(),
     pincode: z
       .string()
       .min(6, "Enter valid pincode")
@@ -46,15 +47,15 @@ export const useAddressHook = () => {
   };
 
   async function handleSubmit(data) {
-    if (!coordinates) {
-      showErrorMessage("Please Select coordinates on map");
-      setError("root", { message: "Please select coordinates on map" });
-      return;
-    }
+    // if (!coordinates) {
+    //   showErrorMessage("Please Select coordinates on map");
+    //   setError("root", { message: "Please select coordinates on map" });
+    //   return;
+    // }
 
     const submitingdata = {
       ...data,
-      ...coordinates,
+      // ...coordinates,
     };
 
     console.log(submitingdata);

@@ -2,7 +2,7 @@
 import { showAxiosError, showSuccessMessage } from "@/core/Toast";
 import { API } from "@/core/url";
 import { clearCart } from "@/Store/slice/cartSlice";
-import { fetchUserProfile } from "@/Store/slice/ProfileSlice";
+import { clearProfile, fetchUserProfile } from "@/Store/slice/ProfileSlice";
 import { clearWishlist } from "@/Store/slice/wishlistSlice";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 
 export const userProfileHook = () => {
   const [orders, setOrders] = useState([]);
-  const [active, setActive] = useState("Dashboard");
+  const [active, setActive] = useState("Orders");
   const dispatch = useDispatch();
 
   const router = useRouter();
@@ -73,6 +73,7 @@ export const userProfileHook = () => {
     showSuccessMessage("You have been logged out.");
     dispatch(clearCart());
     dispatch(clearWishlist());
+    dispatch(clearProfile());
     router.push("/");
     // window.location.href = "/login"; // uncomment for redirect
   };

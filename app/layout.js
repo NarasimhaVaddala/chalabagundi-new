@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { Header } from "@/Components/Header/Header";
 import { FooterWrapper } from "@/Components/Footers/FooterWrapper";
 import ReduxProvider from "@/Store/store/Provider";
+import SpoonCursor from "@/Utils/SpoonCursor";
 
 export const metadata = {
   title: "Chalabagundi App",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         <ToastContainer />
         <ReduxProvider>
           <Header />
+          <SpoonCursor />
           {children}
           <FooterWrapper />
         </ReduxProvider>
