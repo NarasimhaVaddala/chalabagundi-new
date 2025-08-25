@@ -39,7 +39,7 @@ const RelatedProduct = ({ relatedProduct, subcategory, category }) => {
       />
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto scrollbar-hide scroll-smooth border-y border-gray-200"
+        className="flex overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth border-y border-gray-200"
       >
         {relatedProduct?.map((item, idx) => (
           <motion.div

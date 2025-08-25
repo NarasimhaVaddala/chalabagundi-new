@@ -1,8 +1,10 @@
+import { decrementQty, incrementQty } from "@/Store/slice/cartSlice";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-export const useSingleProductAddCardHook = ({ singleItem }) => {
+export const useSingleProductAddCardHook = ({ singleItem, category }) => {
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
 
   const [quantity, setQuantity] = useState(1);
   const [displayImg, setDisplayImg] = useState("");
@@ -14,14 +16,31 @@ export const useSingleProductAddCardHook = ({ singleItem }) => {
 
   const pricePerItem = parsePrice(singleItem?.price || "₹ 0");
 
-  const increment = () => setQuantity((q) => (q < 99 ? q + 1 : q)); // max 99
-  const decrement = () => setQuantity((q) => (q > 1 ? q - 1 : q)); // min 1
+  const cartItem = cartItems.find(
+    (item) => item.name === singleItem.name && item.category === category
+  );
+  const increment = () => {
+    if (cartItem) dispatch(incrementQty({ name: singleItem.name, category }));
+    setQuantity((q) => (q < 50 ? q + 1 : q));
+  };
+
+  const decrement = () => {
+    if (cartItem && cartItem.quantity > 1)
+      dispatch(decrementQty({ name: singleItem.name, category }));
+    setQuantity((q) => (q > 1 ? q - 1 : q));
+  };
 
   const totalPrice = pricePerItem * quantity;
 
   useEffect(() => {
     setDisplayImg(singleItem?.image?.[0]);
   }, [singleItem]);
+
+  useEffect(() => {
+    if (cartItem) {
+      setQuantity(cartItem.quantity);
+    }
+  }, [cartItem]);
 
   return {
     quantity,

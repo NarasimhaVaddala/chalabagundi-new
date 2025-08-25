@@ -11,7 +11,7 @@ import { Logo } from "./Logo";
 export const MainHeader = ({ setOpen }) => {
   const router = useRouter();
   const [showMobileSearch, setShowMobileSearch] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+
   const cartItems = useSelector((state) => state.cart.items);
   const wishlistItems = useSelector((state) => state.wishlist.items);
 
@@ -37,7 +37,7 @@ export const MainHeader = ({ setOpen }) => {
         <Logo />
         {/* Desktop Search */}
         <div className="hidden md:flex w-full md:w-[400px] lg:w-[600px] bg-[#f2f3f5] px-6 justify-between items-center h-[50px] rounded-3xl">
-          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <SearchBar />
         </div>
         {/* Animated Icons */}
         <motion.div
@@ -97,7 +97,7 @@ export const MainHeader = ({ setOpen }) => {
       {/* Mobile Search Bar */}
       {showMobileSearch && (
         <div className="md:hidden mb-4 w-full mt-3">
-          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <SearchBar />
         </div>
       )}
     </>
