@@ -2,17 +2,17 @@ import { decrementQty, incrementQty } from "@/Store/slice/cartSlice";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+export const parsePrice = (priceString) => {
+  const number = priceString?.match(/\d+/g)?.join("") || "0";
+  return parseInt(number, 10);
+};
+
 export const useSingleProductAddCardHook = ({ singleItem, category }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 
   const [quantity, setQuantity] = useState(1);
   const [displayImg, setDisplayImg] = useState("");
-
-  const parsePrice = (priceString) => {
-    const number = priceString?.match(/\d+/g)?.join("") || "0";
-    return parseInt(number, 10);
-  };
 
   const pricePerItem = parsePrice(singleItem?.price || "₹ 0");
 

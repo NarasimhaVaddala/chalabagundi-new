@@ -22,8 +22,6 @@ const FilterPageContent = () => {
     priceRange,
   } = useFilterCardHook();
 
-  console.log("categoryItems", categoryItems);
-
   return (
     <div className="w-full flex flex-col gap-4">
       <FilterItemFirstCard

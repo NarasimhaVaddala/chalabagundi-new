@@ -58,8 +58,6 @@ export const useAddressHook = () => {
       // ...coordinates,
     };
 
-    console.log(submitingdata);
-
     try {
       if (data._id) {
         const resp = await API.put(
@@ -80,8 +78,6 @@ export const useAddressHook = () => {
     } finally {
       dispatch(fetchUserProfile());
     }
-
-    // console.log(data);
   }
 
   const handleClose = () => {

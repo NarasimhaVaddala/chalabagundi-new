@@ -29,8 +29,6 @@ export const useAddressHook = () => {
 
   const [addressBoxOpen, setAddressBoxOpen] = useState(false);
 
-  console.log(addressBoxOpen, "address-box");
-
   useEffect(() => {
     dispatch(fetchUserProfile());
   }, [dispatch]);
@@ -42,8 +40,6 @@ export const useAddressHook = () => {
   }, [profile]);
 
   async function handleSubmit(data) {
-    console.log(data);
-
     try {
       if (data._id) {
         const resp = await API.put(`/auth/edit-address/${data._id}`, data);
@@ -61,8 +57,6 @@ export const useAddressHook = () => {
     } finally {
       dispatch(fetchUserProfile());
     }
-
-    // console.log(data);
   }
 
   return {

@@ -26,8 +26,6 @@ export const userProfileHook = () => {
     try {
       const resp = await API.get("/orders/all-orders");
 
-      console.log(resp.data);
-
       setOrders(resp.data);
     } catch (error) {
       showAxiosError(error);
@@ -58,8 +56,6 @@ export const userProfileHook = () => {
 
   async function updateAddress(data) {
     try {
-      console.log(data);
-
       const resp = await API.put("/auth/profile", { address: data });
 
       showSuccessMessage("Updated Success");

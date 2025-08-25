@@ -7,7 +7,6 @@ export const fetchUserProfile = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await API.get("/auth/profile");
-      console.log(response.data, "IN SLICE");
 
       return response.data;
     } catch (error) {

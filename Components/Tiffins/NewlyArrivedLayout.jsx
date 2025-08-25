@@ -106,12 +106,9 @@ export default function NewlyArrivedLayout({
               .map((item, idx) => (
                 <ItemCard
                   key={idx}
-                  isAvailableDis={false}
-                  rating={item.rating}
-                  image={Array.isArray(item.image) ? item.image[0] : item.image}
-                  name={item.name}
-                  price={item.price}
-                  description={item?.description}
+                  item={item}
+                  category={category}
+                  subcategory={subCategories}
                   previewItem={() => handleItemClick(item)}
                   toggleWishlist={() => handleWishlistAdded(item)}
                   isInWishlist={isItemInWishlist(item)}

@@ -25,8 +25,6 @@ export const useAuthHook = () => {
     defaultValues: { mobile: "", otp: "", name: "", email: "" },
     validations: validations,
     submitFn: async (data) => {
-      console.log(data);
-
       try {
         if (signUp) {
           // Final step: Submit full sign-up
@@ -81,8 +79,6 @@ export const useAuthHook = () => {
           }
         }
       } catch (err) {
-        console.log(err, "FROM UNEXPECTED ERROR");
-
         setError("root", { message: "An unexpected error occurred." });
       }
     },

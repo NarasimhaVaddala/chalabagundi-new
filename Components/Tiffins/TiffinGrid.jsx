@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function TiffinGrid({ items = [] }) {
+  const router = useRouter();
   const uniqueTypeItems = Object.values(
     items.reduce((acc, item) => {
       if (!acc[item.type]) {
@@ -12,10 +14,18 @@ export default function TiffinGrid({ items = [] }) {
     }, {})
   );
 
+  const handleShopClick = (category, subcat) => {
+    router.push(
+      `/filter-items?category=${encodeURIComponent(
+        category
+      )}&subcategory=${encodeURIComponent(subcat)}`
+    );
+  };
+
   return (
     <div className="w-full">
       <div className="flex flex-wrap w-full gap-2">
-        {uniqueTypeItems.map(({ type, image }, idx) => {
+        {uniqueTypeItems.map(({ type, image, category, subcategory }, idx) => {
           const imgSrcRaw = Array.isArray(image) ? image[0] : image;
           let imgSrc = imgSrcRaw;
 
@@ -31,6 +41,7 @@ export default function TiffinGrid({ items = [] }) {
 
           return (
             <div
+              onClick={() => handleShopClick(category, subcategory)}
               key={idx}
               className="w-full md:w-1/4 h-[140px] flex items-center justify-between p-4 border border-gray-300 bg-white hover:border-gray-700 transition-colors cursor-pointer"
             >

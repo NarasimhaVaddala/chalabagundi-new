@@ -1,27 +1,36 @@
+"use client";
 import { Heart, HeartOff, Eye } from "lucide-react";
-import { Star } from "./Starts";
 import CustomButton from "./CustomButton";
 import QuantityButtons from "./QuantityButtons";
+import { addToCart } from "@/Store/slice/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export const ItemCard = ({
-  isAvailableDis = false,
-  image,
   previewItem = () => {},
-  name,
-  rating,
-  price,
-  description,
   toggleWishlist = () => {},
   isInWishlist = false,
+  category = "",
+  subcategory = "",
+  item,
 }) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartItem = cartItems?.find(
+    (product) => product.name === item?.name && product.category === category
+  );
+  const handleAddToCart = () => {
+    dispatch(addToCart({ ...item, category, subcategory, quantity: 1 }));
+  };
+
   return (
-    <div
-      onClick={previewItem}
-      className="cursor-pointer group min-w-[230px] max-w-[230px] h-[330px] border border-gray-200 hover:rounded-sm overflow-hidden flex flex-col gap-2 hover:border-gray-400 transition-all duration-300 relative p-1"
-    >
+    <div className="cursor-pointer group min-w-[230px] max-w-[230px] h-[340px] border border-gray-200 hover:rounded-sm overflow-hidden flex flex-col gap-2 hover:border-gray-400 transition-all duration-300 relative p-1">
       {/* Image */}
       <div className="h-1/2 w-full overflow-hidden">
-        <img src={image} alt={name} className="w-full h-full object-cover" />
+        <img
+          src={item?.image?.[0]}
+          alt={item?.name}
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* Wishlist + Preview Buttons */}
@@ -52,27 +61,23 @@ export const ItemCard = ({
         </span>
       </div>
 
-      <div className="h-1/2 p-4 flex flex-col gap-2">
-        <h3 className="text-base font-semibold text-gray-800">{name}</h3>
-        <span className="text-sm text-gray-800 -mt-1.5 line-clamp-2">
-          {description}
+      <div className="h-1/2  px-4 py-2 flex flex-col gap-1">
+        <h3 className="text-base font-semibold text-gray-800 line-clamp-1">
+          {item?.name}
+        </h3>
+        <span className="text-sm text-gray-600  h-[40px] line-clamp-2">
+          {item?.description}
         </span>
-        <p className="text-red-500 font-bold text-lg">{price}</p>
+        <p className="text-red-500 font-bold text-lg">{item?.price}</p>
 
-        <CustomButton text="Add to Cart" />
-        <QuantityButtons />
-
-        {isAvailableDis && (
-          <div className="flex w-full gap-1.5">
-            <p className="text-gray-500 text-sm">
-              Sold:{" "}
-              <span className="text-sm font-semibold text-black">200</span>
-            </p>
-            <p className="text-gray-500 text-sm">
-              Available:{" "}
-              <span className="text-sm font-semibold text-black">200</span>
-            </p>
-          </div>
+        {cartItem ? (
+          <QuantityButtons cartItem={{ ...cartItem, category, subcategory }} />
+        ) : (
+          <CustomButton
+            onClick={handleAddToCart}
+            text={`Add to Cart ⭐${item?.rating}`}
+            className="w-full"
+          />
         )}
       </div>
     </div>
