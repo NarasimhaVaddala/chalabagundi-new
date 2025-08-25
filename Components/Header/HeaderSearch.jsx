@@ -1,31 +1,58 @@
 "use client";
 
+import { allProductItems } from "@/public/data/items.data";
 import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useMemo, useState } from "react";
 
-export const SearchBar = ({ searchTerm, setSearchTerm, className }) => {
+export const SearchBar = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
 
-  // Example product list (replace with API data if needed)
-  const products = [
-    { id: 1, name: "Apple Juice" },
-    { id: 2, name: "Banana" },
-    { id: 3, name: "Mango" },
-    { id: 4, name: "Orange" },
-    { id: 5, name: "Pineapple" },
-  ];
+  const allProducts = useMemo(() => {
+    const items = [];
 
-  const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    allProductItems.forEach((categoryObj) => {
+      Object.entries(categoryObj).forEach(([categoryKey, subCategories]) => {
+        Object.entries(subCategories).forEach(([subCatKey, itemArray]) => {
+          if (Array.isArray(itemArray)) {
+            itemArray.forEach((product) => {
+              items.push({
+                ...product,
+                _category: categoryKey,
+                _subcategory: subCatKey,
+              });
+            });
+          }
+        });
+      });
+    });
+
+    return items;
+  }, []);
+
+  const filteredProducts = allProducts.filter((product) =>
+    product?.name?.toLowerCase()?.includes(searchTerm.toLowerCase())
   );
+
+  // ||product?.type?.toLowerCase()?.includes(searchTerm.toLowerCase())
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
+  const handleNavigate = (product) => {
+    const query = new URLSearchParams({
+      subcategory: product?._subcategory,
+      name: product.name,
+    }).toString();
+    router.push(`/${product?._category}?${query}`);
+    setSearchTerm("");
+  };
+
   return (
     <div
-      className={`w-full bg-[#f2f3f5] px-6 flex justify-between items-center h-[50px] rounded-3xl relative ${className}`}
+      className={`w-full bg-[#f2f3f5] px-6 flex justify-between items-center h-[50px] rounded-3xl relative `}
     >
       <input
         type="text"
@@ -38,16 +65,25 @@ export const SearchBar = ({ searchTerm, setSearchTerm, className }) => {
 
       {searchTerm && filteredProducts.length > 0 && (
         <ul className="absolute top-[60px] left-0 w-full bg-white border border-gray-200 rounded-md shadow-md max-h-60 overflow-y-auto z-50">
-          {filteredProducts.map((product) => (
+          {filteredProducts.map((product, index) => (
             <li
-              key={product.id}
-              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-              onClick={() => {
-                router.push(`/product/${product.id}`);
-                setSearchTerm(""); // Clear search after navigation
-              }}
+              key={`${product.name}-${index}`}
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer w-full flex items-center gap-2"
+              onClick={() => handleNavigate(product)}
             >
-              {product.name}
+              <span className="w-[45px] h-[45px] overflow-hidden bg-gray-50">
+                <img
+                  src={product?.image?.[0]}
+                  className="w-full h-full"
+                  alt=""
+                />
+              </span>
+              <div className="flex flex-col">
+                <span className="text-base font-semibold">{product.name}</span>
+                <span className="text-sm text-gray-700">
+                  {product.description}
+                </span>
+              </div>
             </li>
           ))}
         </ul>
@@ -55,3 +91,5 @@ export const SearchBar = ({ searchTerm, setSearchTerm, className }) => {
     </div>
   );
 };
+
+// tiffins?subcategory=Aapalu&name=Karam+Aapalu
