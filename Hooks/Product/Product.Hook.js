@@ -19,13 +19,10 @@ export const useProductHook = () => {
     if (!foundCategory) return { categoryItems: [], subCategories: {} };
 
     const subCategories = foundCategory[category];
-    // console.log("subCategories", subCategories);
 
     let mergedItems = [];
 
     Object.entries(subCategories).forEach(([subCatKey, itemsArray]) => {
-      console.log(itemsArray, "-------------------");
-
       const updatedItems = itemsArray?.map((item) => ({
         ...item,
         category: category,

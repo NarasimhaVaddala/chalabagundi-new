@@ -60,8 +60,6 @@ export const useCheckOutPageHook = () => {
       dispatch(clearCart());
       router.push("/");
     } catch (error) {
-      console.log(error);
-
       showAxiosError(error);
     }
   };

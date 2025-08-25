@@ -80,8 +80,6 @@ export const useFilterCardHook = () => {
     priceRange,
   ]);
 
-  console.log("filteredItems", filteredItems);
-
   return {
     categoryItems: filteredItems,
     subCategoryTypes,

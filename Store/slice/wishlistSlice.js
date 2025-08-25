@@ -10,8 +10,6 @@ const wishlistSlice = createSlice({
   reducers: {
     addToWishlist(state, action) {
       const item = action.payload;
-      console.log("item", action.payload);
-
       const exists = state.items.find(
         (i) => i.name === item.name && i.category === item.category
       );

@@ -13,12 +13,6 @@ export default function CartLayout() {
   const cartItems = useSelector((state) => state.cart.items);
   const router = useRouter();
 
-  //   const totalPrice = cartItems.reduce(
-  //     (total, item) =>
-  //       total + parseInt(item?.price?.replace(/[^0-9]/g, ""), 10) * item.quantity,
-  //     0
-  //   );
-
   const navigateToCheckout = () => {
     router.push("/cart");
   };

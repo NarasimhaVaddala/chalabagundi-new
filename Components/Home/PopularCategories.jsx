@@ -55,7 +55,7 @@ export const PopularCategories = () => {
           products: 5,
           img: "/bg-removes/meals.png",
           category: "meals",
-          subcat: "non veg",
+          subcat: "Non Veg Meals",
         },
       ],
     },

@@ -33,7 +33,6 @@ const Login = ({ setActiveTab, setMobile, isClose }) => {
         mobile: loginData.mobile,
         otp: loginData?.otp,
       });
-      console.log("res", res);
       localStorage.setItem("eToken", res?.data?.token);
       isClose(false);
     } catch (error) {

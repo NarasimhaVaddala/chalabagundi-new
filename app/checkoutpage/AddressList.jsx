@@ -9,7 +9,6 @@ export default function AddressList({
   setSelectedAddress,
 }) {
   const router = useRouter();
-  console.log("addresses?.length", addresses?.length);
 
   return (
     <div>

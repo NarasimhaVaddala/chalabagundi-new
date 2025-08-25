@@ -23,7 +23,6 @@ const cartSlice = createSlice({
 
     removeFromCart(state, action) {
       const { name, category } = action.payload;
-      console.log(action.payload, "payload");
 
       state.items = state.items.filter(
         (i) => !(i.name === name && i.category === category)

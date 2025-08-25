@@ -18,8 +18,6 @@ export const FormComponent = ({
     defaultValues: defaultValues ? defaultValues : null,
   });
 
-  console.log(errors, "----");
-
   const submitForm = (data) => {
     submitFn(data, reset);
   };

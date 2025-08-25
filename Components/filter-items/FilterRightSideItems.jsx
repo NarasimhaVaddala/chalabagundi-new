@@ -55,12 +55,9 @@ const FilterRightSideItems = ({
             {paginatedItems?.map((item) => (
               <ItemCard
                 key={item.name}
-                name={item.name}
-                isAvailableDis={false}
-                image={item?.image?.[0]}
-                rating={item?.rating}
-                price={item?.price}
-                description={item?.description}
+                item={item}
+                category={item?.category}
+                subcategory={item?.subCategory}
                 previewItem={() => handleItemClick(item)}
                 toggleWishlist={() => handleWishlistAdded(item)}
                 isInWishlist={isItemInWishlist(item)}
