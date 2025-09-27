@@ -6,31 +6,29 @@ const OurStoreProduct = () => {
       <div className="flex flex-col gap-2">
         <h2 className="text-xl font-semibold text-black">Our Story</h2>
         <span className="text-base text-gray-600 font-medium">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla
-          augue nec est tristique auctor. Donec non est at libero vulputate
-          rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus
-          mi, vulputate adipiscing cursus eu, suscipit id nulla.
-        </span>
-        <span className="text-base text-gray-600 font-medium">
-          There has to be a better way right? Yes there is!
-        </span>
-        <span className="text-base text-gray-600 font-medium">
-          Drying fruit is a simple preservation technique, which means no fruit
-          is wasted due to rot, and the farmers sell 100% of their harvest.
+          At Chala Bagundhi cloud kitchen Hyderabad, we believe food is not just
+          about eating, it’s about connecting with tradition and taste. Our
+          journey started with a simple vision to bring authentic South Indian
+          tiffins, wholesome meals, and flavorful biryani closer to people
+          through convenient food delivery apps in Hyderabad. Every dish is
+          prepared with homestyle flavors, reminding you of the comfort of home.
+          We focus on freshness and quality. From tiffin cloud kitchen Hyderabad
+          services to delicious pickles and cakes, everything is made with care
+          using authentic recipes. With a strong commitment to hygiene and
+          taste, Chala Bagundhi has become a trusted name for those who crave
+          real food with a homely touch.
         </span>
       </div>
       <div className="flex flex-col gap-2">
         <h2 className="text-xl font-semibold text-black">Our Products</h2>
         <span className="text-base text-gray-600 font-medium">
-          Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat
-          sem, quis fermentum turpis eros eget velit. Donec ac tempus ante.
-          Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis
-          vulputate, sapien libero hendrerit est, sed commodo augue nisi non
-          neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-          tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in
-          accumsan elit odio quis mi. Cras neque metus, consequat et blandit et,
-          luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula
-          euismod eget.
+          Our menu is designed to serve everyone, whether it’s daily meals
+          delivery cloud kitchen Hyderabad, hearty Chala Bagundhi biryani, or
+          quick cloud kitchen takeaway Hyderabad. We also specialize in pickles
+          cloud kitchen Hyderabad, cakes, and snacks that make every occasion
+          memorable. At Chala Bagundhi meals Hyderabad, every order is more than
+          food, it’s a promise of tradition, flavor, and quality delivered
+          straight to your doorstep.
         </span>
       </div>
     </>

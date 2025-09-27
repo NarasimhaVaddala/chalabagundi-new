@@ -27,7 +27,7 @@ const HowItWorkFirst = () => {
         >
           <img
             src="https://htmldemo.net/mixy/mixy/assets/images/banners/img_banner1_mixy3.webp"
-            alt=""
+            alt="Delivery boy holding a grocery box with fresh vegetables and bread for Chala Bagundhi cloud kitchen Hyderabad offering tiffins, meals, biryani, pickles, and cakes through food delivery apps."
             className="w-[86%]"
           />
         </motion.div>
@@ -48,38 +48,35 @@ const HowItWorkFirst = () => {
           </h1>
           <div className="w-full flex flex-col gap-2">
             <span className="text-base font-semibold text-black">
-              At Chala Bagundhi, we make food ordering simple, fast, and
-              reliable. With just a few clicks, you can enjoy your favorite
-              tiffins, biryani, meals, cakes, and pickles delivered straight to
-              your doorstep.
+              At Chala Bagundhi cloud kitchen Hyderabad, food ordering is
+              simple, fast, and reliable. With food delivery apps in Hyderabad,
+              enjoy your favorite tiffins, biryani, meals, pickles, and cakes
+              delivered to your doorstep.
             </span>
             <span className="text-base font-semibold text-black">
               Highest Quality , Every Time.{" "}
             </span>
             <span className="text-sm font-semibold text-black">
-              We believe that quality food brings happiness. Every item is
-              carefully prepared using fresh ingredients, authentic recipes, and
-              hygienic cooking practices. Whether it’s a quick snack or a
-              wholesome meal, we ensure you get the best taste with the highest
-              quality standards.
+              Highest quality every time, our chefs prepare dishes with fresh
+              ingredients and authentic recipes. From cloud kitchen takeaway
+              Hyderabad to daily meals delivery cloud kitchen Hyderabad, we
+              ensure homely taste with hygiene.
             </span>
             <span className="text-sm font-semibold text-black">
               Simple Ordering Process
             </span>
             <ul className="list-disc pl-9">
               <li className="text-sm text-gray-700">
-                Choose Your Food: Browse our wide range of delicious options –
-                from traditional South Indian breakfasts to spicy biryanis,
-                homemade pickles, cakes, and more.
+                Choose Your Food: From South Indian tiffins, biryani, pickles,
+                cakes, and Chala Bagundhi meals Hyderabad
               </li>
               <li className="text-sm text-gray-700">
-                We Prepare With: Care Our expert chefs cook with love, following
-                authentic recipes and maintaining the highest hygiene standards.
+                We Prepare With Care: Expert chefs follow authentic methods with
+                high hygiene standards.
               </li>
               <li className="text-sm text-gray-700">
-                Fast Delivery to Your Doorstep Your order is delivered hot and
-                fresh, so you can enjoy a homely food experience without
-                stepping out.
+                Fast Delivery: With Chala Bagundhi cloud kitchen restaurants,
+                enjoy fresh and hot food at home
               </li>
             </ul>
 

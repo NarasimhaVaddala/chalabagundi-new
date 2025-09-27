@@ -9,6 +9,7 @@ export const tiffins = {
       price: "₹40",
       rating: 4,
       image: ["/tiffins/Idly1.jpg", "/tiffins/Idly2.jpg", "/tiffins/Idly3.jpg"],
+      alt: "Soft fluffy idly with coconut chutney and sambar, freshly served at Chala Bagundi Andhra breakfast kitchen",
     },
     {
       name: "Sambar Idly",
@@ -23,6 +24,7 @@ export const tiffins = {
         "/tiffins/Sambar idly2.jpg",
         "/tiffins/Sambar idly3.jpg",
       ],
+      alt: "Steaming sambar idly on a traditional banana leaf plate, a signature from Chala Bagundi in Hyderabad",
     },
     {
       name: "Guntur Ghee Karam Idly",
@@ -37,6 +39,7 @@ export const tiffins = {
         "/tiffins/Ghee karam idly side view.jpg",
         "/tiffins/Ghee Karam idly top view.jpg",
       ],
+      alt: "Authentic idli dosa breakfast combo with chutneys and podi at Chala Bagundi, perfect for mornings.",
     },
     {
       name: "Chitti Idly",
@@ -52,6 +55,7 @@ export const tiffins = {
         "/tiffins/chittiidly2.jpg",
         "/tiffins/chittiidly3.jpg",
       ],
+      alt: "Freshly made idli rice idly with hot sambar, a healthy start from Chala Bagundi.",
     },
 
     {
@@ -67,6 +71,7 @@ export const tiffins = {
         "/tiffins/sambarchittiidly2.png",
         "/tiffins/sambarchittiidly3.png",
       ],
+      alt: "Traditional Andhra idly and sambar plate with ghee, served hot at Chala Bagundi.",
     },
     {
       name: "Ghee Karam Chitti Idly",
@@ -81,6 +86,7 @@ export const tiffins = {
         "/tiffins/gheekaramchittiidly2.jpg",
         "/tiffins/gheekaramchittiidly1.jpg",
       ],
+      alt: "Classic idly sambar breakfast loved by locals, served daily at Chala Bagundi.",
     },
   ],
   Dosa: [
@@ -315,21 +321,20 @@ export const tiffins = {
         "/tiffins/karam_appalu3.jpg",
       ],
     },
-    {
-      //
-      name: "Ghee Karam Aapalu",
-      main_ingredient: "Rice, urad dal, ghee, red chilli powder",
-      description: "Aapalu with ghee and karam",
-      spice_level: "High",
-      type: "Aapalu",
-      price: "₹60",
-      rating: 4,
-      image: [
-        "/tiffins/Gheekaramappalu1.jpg",
-        "/tiffins/Gheekaramappalu2.jpg",
-        "/tiffins/Gheekaramappalu3.jpg",
-      ],
-    },
+    // {
+    //   name: "Ghee Karam Aapalu",
+    //   main_ingredient: "Rice, urad dal, ghee, red chilli powder",
+    //   description: "Aapalu with ghee and karam",
+    //   spice_level: "High",
+    //   type: "Aapalu",
+    //   price: "₹60",
+    //   rating: 4,
+    //   image: [
+    //     "/tiffins/Gheekaramappalu1.jpg",
+    //     "/tiffins/Gheekaramappalu2.jpg",
+    //     "/tiffins/Gheekaramappalu3.jpg",
+    //   ],
+    // },
   ],
   Pasarattu: [
     {
