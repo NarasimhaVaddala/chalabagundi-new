@@ -4,6 +4,7 @@ import CustomButton from "./CustomButton";
 import QuantityButtons from "./QuantityButtons";
 import { addToCart } from "@/Store/slice/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Image from "next/image";
 
 export const ItemCard = ({
   previewItem = () => {},
