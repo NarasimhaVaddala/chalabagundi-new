@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { Logo } from "../Header/Logo";
 
 export default function Footer() {
   return (
@@ -9,11 +10,13 @@ export default function Footer() {
         {/* Logo & Social */}
         <div className="flex flex-col items-center md:items-start">
           <div className="flex items-center gap-2 mb-4">
-            <img
+            {/* <img
               src="/images/logo.webp"
               alt="ShopCart Logo"
               className="w-40 h-10"
-            />
+            /> */}
+
+            <Logo />
             {/* <span className="text-2xl font-bold text-gray-800">shopcart</span> */}
           </div>
           <div className="flex space-x-3">
@@ -99,7 +102,7 @@ export default function Footer() {
         </div>
 
         {/* Download App */}
-        <div className="text-center md:text-left">
+        {/* <div className="text-center md:text-left">
           <h3 className="text-sm font-bold text-gray-800 mb-3">
             DOWNLOAD OUR APP
           </h3>
@@ -112,7 +115,7 @@ export default function Footer() {
               <img src="/googleplay.png" alt="Google Play" className="h-10" />
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

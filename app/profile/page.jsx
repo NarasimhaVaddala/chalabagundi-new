@@ -46,22 +46,20 @@ export default function page() {
         setSidebarOpen={setSidebarOpen}
       />
 
-      {/* Overlay for mobile sidebar */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-[rgba(0,0,0,0.5)] bg-opacity-50 z-40 lg:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
-
       <main className="flex-1 lg:p-6 p-4 mt-4 lg:mt-0">
         <div className="lg:hidden mb-4">
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className="p-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors"
-          >
-            <Menu />
-          </button>
+          <div className="md:hidden space-x-2">
+            {menuItems.map((e) => {
+              return (
+                <SmallNavBtn
+                  key={e}
+                  text={e}
+                  active={e === active}
+                  onclick={() => setActive(e)}
+                />
+              );
+            })}
+          </div>
         </div>
 
         <h1 className="text-xl lg:text-2xl font-semibold text-gray-800">
@@ -69,17 +67,11 @@ export default function page() {
         </h1>
         <hr className="my-4" />
 
-        {/* {active === "Dashboard" && (
-          <p className="text-gray-600 leading-relaxed max-w-2xl text-sm lg:text-base">
-            From your account dashboard, you can easily check & view your recent
-            orders, manage your shipping and billing addresses and edit your
-            password and account details.
-          </p>
-        )} */}
         {active === "Orders" &&
           (selectedOrder ? (
             <OrderPopupModal
               order={selectedOrder}
+              onClose={() => setSelectedOrder(null)}
               cancelOrder={() => setOpenCancelModal(true)}
             />
           ) : (
@@ -129,5 +121,22 @@ export default function page() {
         </div>
       </Modal>
     </div>
+  );
+}
+
+function SmallNavBtn({ active, text, onclick }) {
+  return (
+    <button
+      onClick={onclick}
+      className={`
+          px-4 py-2 rounded-lg cursor-pointer
+          border border-gray-400 ${
+            active
+              ? "bg-green-500 text-white font-bold"
+              : "bg-white text-black font-medium"
+          }`}
+    >
+      {text}
+    </button>
   );
 }

@@ -1,8 +1,9 @@
 import { buildImageUrl } from "@/core/url";
 import CustomButton from "@/Utils/CustomButton";
+import { ArrowLeft } from "lucide-react";
 import React from "react";
 
-export default function OrderPopupModal({ order, cancelOrder }) {
+export default function OrderPopupModal({ order, cancelOrder, onClose }) {
   if (!order) return null;
 
   const {
@@ -18,6 +19,10 @@ export default function OrderPopupModal({ order, cancelOrder }) {
 
   return (
     <div className="bg-white p-6 rounded-2xl shadow-md max-w-3xl mx-auto mt-6">
+      <button className="my-2 cursor-pointer" onClick={onClose}>
+        <ArrowLeft />
+      </button>
+
       <h2 className="text-2xl font-bold text-green-700 mb-4">
         Order Details - {_id}
       </h2>

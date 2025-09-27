@@ -10,6 +10,7 @@ export default function FooterBottom() {
         <p className="text-sm text-gray-600 text-center md:text-left">
           Copyright ©{" "}
           <Link
+            target="_blank"
             href="https://www.nuhvin.com"
             className="hover:underline cursor-pointer"
           >

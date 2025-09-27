@@ -1,5 +1,5 @@
 "use client";
-import { Heart, HeartOff, Eye } from "lucide-react";
+import { Heart, HeartOff, Eye, ShoppingBag } from "lucide-react";
 import CustomButton from "./CustomButton";
 import QuantityButtons from "./QuantityButtons";
 import { addToCart } from "@/Store/slice/cartSlice";
@@ -75,8 +75,10 @@ export const ItemCard = ({
         ) : (
           <CustomButton
             onClick={handleAddToCart}
-            text={`Add to Cart ⭐${item?.rating}`}
+            // text={`Add to Cart ⭐${item?.rating}`}
+            text={`Add to Cart`}
             className="w-full"
+            icon={<ShoppingBag size={15} />}
           />
         )}
       </div>

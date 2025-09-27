@@ -35,6 +35,7 @@ export const useAddressHook = () => {
   const [coordinates, setCoordinates] = useState(null);
   const [open, setOpen] = useState(false);
 
+  const [openDeleteAddressModal, setOpenDeleteAddressModal] = useState(null);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUserProfile());
@@ -93,6 +94,7 @@ export const useAddressHook = () => {
   async function handleDelete(id) {
     try {
       const resp = await API.delete(`/auth/delete-address/${id}`);
+      setOpenDeleteAddressModal(null);
       showSuccessMessage("Removed Address from list");
     } catch (error) {
       showAxiosError(error);
@@ -113,5 +115,7 @@ export const useAddressHook = () => {
     handleEdit,
     handleClose,
     handleDelete,
+    openDeleteAddressModal,
+    setOpenDeleteAddressModal,
   };
 };

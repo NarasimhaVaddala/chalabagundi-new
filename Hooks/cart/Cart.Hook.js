@@ -11,6 +11,7 @@ import {
 } from "@/core/Toast";
 import { useRouter } from "next/navigation";
 import { fetchUserProfile } from "@/Store/slice/ProfileSlice";
+import { usePaymentHook } from "./PaymentHook";
 
 export const useCartHook = ({
   selectedAddress,
@@ -19,6 +20,9 @@ export const useCartHook = ({
 }) => {
   const { FormWrapper, errors, register, open, setOpen, otpSent, signUp } =
     useAuthHook();
+
+  const { initiatePayment } = usePaymentHook();
+
   const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.profile);
   const cartItems = useSelector((state) => state.cart.items);
@@ -54,15 +58,38 @@ export const useCartHook = ({
           };
         });
 
-        const resp = await API.post("/orders/place-order", {
-          items: filteredItems,
-          totalPrice,
-          paymentStatus: "pending",
-          paymentMode: paymentMethod,
-          selectedAddress: selectedAddress._id,
-        });
-        showSuccessMessage("Order Placed");
-        dispatch(clearCart());
+        if (paymentMethod === "upi") {
+          await initiatePayment(
+            {
+              name: profile?.name,
+              email: profile?.email,
+              mobile: profile?.mobile,
+              amount: totalPrice,
+            },
+            async () => {
+              await API.post("/orders/place-order", {
+                items: filteredItems,
+                totalPrice,
+                paymentStatus: "completed",
+                paymentMode: "upi",
+                selectedAddress: selectedAddress._id,
+              });
+              showSuccessMessage("Order Placed");
+              dispatch(clearCart());
+            }
+          );
+        } else {
+          // COD / other flow
+          const resp = await API.post("/orders/place-order", {
+            items: filteredItems,
+            totalPrice,
+            paymentStatus: "pending",
+            paymentMode: paymentMethod,
+            selectedAddress: selectedAddress._id,
+          });
+          showSuccessMessage("Order Placed");
+          dispatch(clearCart());
+        }
       } else {
         setOpen(true);
       }

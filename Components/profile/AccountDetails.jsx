@@ -47,6 +47,7 @@ export default function AccountDetails({ profile, updateProfile }) {
           type="number"
           placeholder="9999999999"
           error={errors.mobile}
+          disabled={true}
         />
 
         <CustomButton type="submit" />

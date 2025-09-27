@@ -16,11 +16,10 @@ export default function CustomButton({
       }}
       className={`${className} cursor-pointer
         px-4 py-2  text-white rounded-lg text-center font-medium transition-colors duration-200 
-       bg-[#179957] hover:bg-[#184d47] flex items-center justify-center
+       bg-[#179957] hover:bg-[#184d47] flex items-center justify-center gap-2
        `}
     >
-      <span>{text}</span>
-      {icon && icon}
+      <span>{text}</span> {icon && <span>{icon}</span>}
     </button>
   );
 }
