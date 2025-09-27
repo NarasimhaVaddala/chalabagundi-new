@@ -12,6 +12,7 @@ export const cakes = {
         "/cakes/chocolate_truffle_cake_3.jpg",
       ],
       rating: 4,
+      alt: "Rich chocolate truffle cake with creamy layers, a sweet delight freshly served at Chala Bagundi bakery.",
     },
     {
       name: "Classic Vanilla Cake",
@@ -25,6 +26,7 @@ export const cakes = {
         "/cakes/classic_vanilla_cake_3.jpg",
       ],
       rating: 4,
+      alt: "Soft and fluffy vanilla cake with buttercream frosting, a classic favorite from Chala Bagundi celebrations.",
     },
     {
       name: "Strawberry Cake",
@@ -38,6 +40,7 @@ export const cakes = {
         "/cakes/strawberry_cake_3.jpg",
       ],
       rating: 4,
+      alt: "Fresh strawberry cake topped with cream and cherries, a chala bagundi special for birthdays and parties",
     },
     {
       name: "Black Forest Cake",
@@ -51,22 +54,24 @@ export const cakes = {
         "/cakes/black_forest_cake_3.jpg",
       ],
       rating: 4,
+      alt: "Classic black forest cake with whipped cream and cherries, a festive dessert loved at Chala Bagundi.",
     },
   ],
   "Cool Cakes": [
-    {
-      name: "Ice Cream Cake",
-      main_ingredient: "Ice Cream and Sponge Cake",
-      description: "Layered ice cream cake with assorted flavors.",
-      type: "Assorted",
-      price: "₹1800",
-      image: [
-        "/cakes/icecreamcake1.jpg",
-        "/cakes/icecreamcake2.jpg",
-        "/cakes/icecreamcake3.jpg",
-      ],
-      rating: 4,
-    },
+    // {
+    //   name: "Ice Cream Cake",
+    //   main_ingredient: "Ice Cream and Sponge Cake",
+    //   description: "Layered ice cream cake with assorted flavors.",
+    //   type: "Assorted",
+    //   price: "₹1800",
+    //   image: [
+    //     "/cakes/icecreamcake1.jpg",
+    //     "/cakes/icecreamcake2.jpg",
+    //     "/cakes/icecreamcake3.jpg",
+    //   ],
+    //   rating: 4,
+    //   alt: "Delicious blend of chocolate and vanilla cake flavors, perfect for family gatherings at Chala Bagundi.",
+    // },
     {
       name: "Fruit Ice Cake",
       main_ingredient: "Fresh Fruits and Ice Cream",
@@ -79,22 +84,23 @@ export const cakes = {
         "/cakes/fruitcake3.jpg",
       ],
       rating: 4,
+      alt: "Light sponge cake with rich fresh cream, an irresistible chala bagundi dessert option",
     },
   ],
   Cheesecakes: [
-    {
-      name: "Classic New York Cheesecake",
-      main_ingredient: "Cream Cheese",
-      description: "Creamy cheesecake with a crunchy graham crust.",
-      type: "Cheese",
-      price: "₹1300",
-      image: [
-        "/cakes/Classic_Newyork_Cheesecake_1.jpg",
-        "/cakes/Classic_Newyork_Cheesecake_2.jpg",
-        "/cakes/Classic_Newyork_Cheesecake_3.jpg",
-      ],
-      rating: 4,
-    },
+    // {
+    //   name: "Classic New York Cheesecake",
+    //   main_ingredient: "Cream Cheese",
+    //   description: "Creamy cheesecake with a crunchy graham crust.",
+    //   type: "Cheese",
+    //   price: "₹1300",
+    //   image: [
+    //     "/cakes/Classic_Newyork_Cheesecake_1.jpg",
+    //     "/cakes/Classic_Newyork_Cheesecake_2.jpg",
+    //     "/cakes/Classic_Newyork_Cheesecake_3.jpg",
+    //   ],
+    //   rating: 4,
+    // },
     {
       name: "Blueberry Cheesecake",
       main_ingredient: "Blueberries and Cream Cheese",

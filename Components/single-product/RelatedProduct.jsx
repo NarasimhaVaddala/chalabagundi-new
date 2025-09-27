@@ -51,13 +51,9 @@ const RelatedProduct = ({ relatedProduct, subcategory, category }) => {
             viewport={{ once: false, amount: 0.2 }}
           >
             <ItemCard
-              key={item.name}
-              name={item.name}
-              isAvailableDis={false}
-              image={item?.image?.[0]}
-              rating={item?.rating}
-              price={item?.price}
-              description={item?.description}
+              item={item}
+              category={category}
+              subcategory={subcategory}
               previewItem={() => handleItemClick(category, subcategory, item)}
             />
           </motion.div>

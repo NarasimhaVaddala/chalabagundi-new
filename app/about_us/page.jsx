@@ -81,18 +81,18 @@ const Page = () => {
             variants={fadeUp}
             className="text-gray-600 max-w-3xl mx-auto mb-10"
           >
-            At Chala Bagundhi, we believe that food is not just about filling
-            your stomach, it’s about filling your heart with happiness. From
-            authentic South Indian tiffins to flavorful biryani, pickles, cakes,
-            and wholesome meals, every dish is crafted to bring you the true
-            taste of tradition. Our recipes are prepared with love, fresh
-            ingredients, and a touch of home-style cooking that makes every bite
-            memorable.
+            Experience the taste of home at Chala Bagundhi cloud kitchen in
+            Hyderabad. Order Chala Bagundhi tiffins, Chala Bagundhi biryani, and
+            Chala Bagundhi meals Hyderabad easily through food delivery apps in
+            Hyderabad. Our cloud kitchen takeaway Hyderabad ensures every bite
+            is fresh, while our cakes cloud kitchen Hyderabad adds a sweet touch
+            to your day. Discover why we’re among the top cloud kitchens serving
+            the best Hyderabadi biryani Hyderabad.
           </motion.p>
           <motion.div variants={fadeUp} className="flex justify-center">
             <img
               src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Grocery Store"
+              alt="A crispy dosa served with chutneys and curry at Chala Bagundhi cloud kitchen Hyderabad, offering authentic tiffins, meals, biryani, pickles, and cakes through food delivery apps in Hyderabad"
               className="w-full h-[400px] md:h-[620px] object-cover rounded-lg shadow-lg"
             />
           </motion.div>
@@ -103,15 +103,15 @@ const Page = () => {
           {[
             {
               title: "Who We Are ?",
-              text: "Chala Bagundhi is a one-stop destination for food lovers who crave authentic and delicious meals. We are passionate about serving high-quality food that connects people to their roots and reminds them of home-cooked flavors. Whether you’re looking for a quick breakfast, a festive meal, or a sweet treat, we bring a wide variety of options to suit every taste.",
+              text: "Chala Bagundhi cloud kitchen in Hyderabad serves authentic tiffins, meals, and biryani that remind you of home. Enjoy Chala Bagundhi meals Hyderabad and Chala Bagundhi biryani delivered conveniently through food delivery apps in Hyderabad.",
             },
             {
               title: "Our Values",
-              text: `At Chala Bagundhi, we stand by three core values: Quality First – We use only fresh, hygienic, and authentic ingredients in every dish. Customer Happiness – Your satisfaction is our priority, and we strive to deliver food that makes you say, “Chala Bagundhi! Tradition & Innovation – We preserve the taste of tradition while innovating to match modern food needs.`,
+              text: `We focus on quality, freshness, and taste in every dish. With cloud kitchen takeaway Hyderabad, cakes cloud kitchen Hyderabad, and daily tiffins, we ensure every meal reaches you with homestyle flavors and care.`,
             },
             {
               title: "Our Mission",
-              text: "Our mission is simple: to bring authentic, tasty, and healthy food to every plate. We aim to make traditional recipes accessible to everyone while ensuring convenience, quality, and affordability. With every meal, we want to create smiles, memories, and a reason to come back for more.",
+              text: "Our mission is to make traditional, tasty food accessible to everyone. From the best Hyderabadi biryani Hyderabad to freshly prepared meals, Chala Bagundhi blends tradition with convenience and satisfaction in every bite.",
             },
           ].map((sec, idx) => (
             <motion.div
